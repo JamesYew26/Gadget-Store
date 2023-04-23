@@ -347,3 +347,21 @@ footer {
 login-background {
     background-image: url(imgs/login-background.jpeg);
 }
+
+
+
+.paypal-button-container{
+    width: 150px;
+    text-align:right;
+    margin-left: 910px;
+
+}
+
+
+.Homebuttons{
+	padding: 12px 20px;
+	font-weight: bold;
+	cursor: pointer;
+        
+}
+
