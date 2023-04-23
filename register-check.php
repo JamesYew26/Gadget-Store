@@ -4,9 +4,7 @@ include "connect_db.php";
 
 if (isset($_POST['uname']) && isset($_POST['password'])
     && isset($_POST['name']) && isset($_POST['re_password'])
-        && isset($_POST['gender']) && isset($_POST['skills'])
-        && isset($_POST['contact']) && isset($_POST['email'])
-        && isset($_POST['college'])) {
+        && isset($_POST['contact']) && isset($_POST['email'])) {
 
 	function validate($data){
             $data = trim($data);
@@ -21,12 +19,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	$re_pass = validate($_POST['re_password']);
 	$name = validate($_POST['name']);
         
-        $gender = validate($_POST['gender']);
-        $skills = validate($_POST['skills']);
-        
         $contact = validate($_POST['contact']);
         $email = validate($_POST['email']);
-        $college = validate($_POST['college']);
         
         
 
@@ -45,15 +39,7 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	    exit();
 	}
         
-        else if(empty($gender)){
-        header("Location: register.php?error=Gender is required&$user_data");
-	    exit();
-	}
         
-        else if(empty($skills)){
-        header("Location: register.php?error=Skills is required&$user_data");
-	    exit();
-	}
         
         else if(empty($contact)){
         header("Location: register.php?error=Contact number is required&$user_data");
@@ -65,10 +51,6 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 	    exit();
 	}
         
-        else if(empty($college)){
-        header("Location: register.php?error=College is required&$user_data");
-	    exit();
-	}
         
         else if(empty($re_pass)){
         header("Location: register.php?error=Re Password is required&$user_data");
@@ -97,8 +79,8 @@ if (isset($_POST['uname']) && isset($_POST['password'])
 			header("Location: register.php?error=The username is taken try another& $user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO Credential(name, username, password, gender, skills, contact, email, college) "
-                   . "VALUES('$name', '$uname', '$pass', '$gender', '$skills','$contact','$email','$college')";
+           $sql2 = "INSERT INTO Credential(name, username, password, contact, email) "
+                   . "VALUES('$name', '$uname', '$pass','$contact','$email')";
            $result2 = mysqli_query($conn, $sql2);
            if ($result2) {
            	 header("Location: register.php?success=Your account has been created successfully");

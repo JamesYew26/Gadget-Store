@@ -16,7 +16,7 @@
 		}
 
 		form {
-			
+
 			width: 500px;
 			border: 2px solid #ccc;
 			padding: 30px;
@@ -117,5 +117,4 @@
 		</form>
 	</center>
 </body>
-
 </html>

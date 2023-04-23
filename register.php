@@ -51,6 +51,14 @@
 			border-radius: 5px;
 			margin: 20px auto;
 		}
+          .success {
+			background: #ABEBC6;
+			color: #239B56;
+			padding: 10px;
+			width: 95%;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
 
           .contacts{
                color: #BBBBBB;
@@ -104,53 +112,57 @@
                
                
                <!-- Name -->
+               <div class="mb-3 mt-3">
           <?php if (isset($_GET['name'])) { ?>
-                    <input  type="text" name="name" value="<?php echo $_GET['name']; ?>" ><br>
+                    <input  type="text" name="name" value="<?php echo $_GET['name']; ?>" >
                <?php } else { ?>
-                    <input type="text" name="name" placeholder="Name"><br></p>
+                    <input type="text" name="name" placeholder="Name">
                <?php } ?>
+               </div>
           
           
           
           <!-- Username -->
+          <div class="mb-3 mt-3">
           <?php if (isset($_GET['uname'])) { ?>
-               <input type="text" name="uname" value="<?php echo $_GET['uname']; ?>"><br>
+               <input type="text" name="uname" value="<?php echo $_GET['uname']; ?>">
           <?php } else { ?>
-               <input type="text" name="uname" placeholder="Username"><br>
+               <input type="text" name="uname" placeholder="Username">
           <?php } ?>
+          </div>
                
                
           
                <!-- Password & Retype Password -->
+               <div class="mb-3 mt-3">
                <input type="password"
                           name="password"
-                          placeholder="Password"><br>
+                          placeholder="Password">
+               </div>
                          
-               
-               <p><input type="password"
+               <div class="mb-3 mt-3">
+                    <input type="password"
                           name="re_password"
-                          placeholder="Retype Password"><br>
-                         </p>
+                          placeholder="Retype Password">
+               </div>
+                         
                 
                 <!-- Contact -->
-                <p><input type="text" 
+                <div class="mb-3 mt-3">
+                <input type="text" 
                     name="contact" 
                     placeholder="Contact Number">
-                </p>
+                </div>
                 
                 
                 
                 <!-- Email -->
-                <p><input type="email" 
+                <div class="mb-3 mt-3">
+                    <input type="email" 
                     name="email" 
                     placeholder="Email">
-                </p>
-                    
-                    
-                    
-                    
-
-                    
+                </div>
+                
           <button type="submit" class="btn btn-primary">Sign Up</button>
           <div class="mt-3"><a href="login.php" class="ca">Already have an account?</a></div>
      </form>
