@@ -10,7 +10,7 @@
 <main>
     <br><br>
     <center>  
-        <div><img src="cancel.png" alt="cancel" style="width:300px;height:300px;"></div>
+        <div><img src="imgs\cancel.png" alt="cancel" style="width:300px;height:300px;"></div>
         <h1 class="font-title">Payment Cancelled</h1>
         <p>Payment has been cancel for some reason.</p>
         <div class="Homebuttons">

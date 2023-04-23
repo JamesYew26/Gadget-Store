@@ -10,7 +10,7 @@
 <main>
     <br><br>
     <center>
-        <div><img src="successful.png" alt="success" style="width:300px;height:300px;"></div>
+        <div><img src="imgs\successful.png" alt="success" style="width:300px;height:300px;"></div>
         <h1 class="font-title">Payment Done Successfully</h1>
             <p>Your Order Has Been Placed, Thank you for ordering with us!</p> 
        
