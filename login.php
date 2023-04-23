@@ -16,7 +16,7 @@
 		}
 
 		form {
-
+			margin-top: 30px;
 			width: 500px;
 			border: 2px solid #ccc;
 			padding: 30px;
@@ -116,5 +116,10 @@
 
 		</form>
 	</center>
+	<footer>
+            <div class="content-wrapper">
+                <h6 style="color: white;">&copy;2023 Group 1 Gadget Store</h6>
+            </div>
+        </footer>
 </body>
 </html>
