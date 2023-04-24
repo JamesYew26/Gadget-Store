@@ -337,7 +337,7 @@ main .cart .buttons {
 	text-align: right;
 	padding-bottom: 40px;
 }
-main .cart .buttons input[type="submit"] {
+main .cart .Homebuttons .buttons input[type="submit"] {
 	margin-left: 5px;
 	padding: 12px 20px;
 	border: 0;
@@ -348,7 +348,7 @@ main .cart .buttons input[type="submit"] {
 	cursor: pointer;
 	border-radius: 5px;
 }
-main .cart .buttons input[type="submit"]:hover {
+main .cart .Homebuttons .buttons input[type="submit"]:hover {
 	background: #434f61;
 }
 main .placeorder h1 {
