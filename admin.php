@@ -2,8 +2,8 @@
 // Below is optional, remove if you have already connected to your database.
 $mysqli = mysqli_connect('localhost', 'username', 'password', 'gadgetstore');
 
-// Get the total number of records from our table "users".
-$total_pages = $mysqli->query('SELECT * FROM users')->num_rows;
+// Get the total number of records from our table "Credential".
+$total_pages = $mysqli->query('SELECT * FROM Credential')->num_rows;
 
 // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
@@ -11,7 +11,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 // Number of results to show on each page.
 $num_results_on_page = 10;
 
-if ($stmt = $mysqli->prepare('SELECT * FROM users ORDER BY name LIMIT ?,?')) {
+if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);

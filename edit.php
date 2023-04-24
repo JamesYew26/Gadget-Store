@@ -9,7 +9,7 @@
 <body>
 <div class="form">
 
-<h1>Update Record</h1>
+<h1>Edit Details</h1>
 <?php
 $status = "";
 if(isset($_POST['new']) && $_POST['new']==1)

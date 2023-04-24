@@ -72,10 +72,10 @@
 	<header style="background-color:white ;">
 		<div class="content-wrapper">
 			<!--Logo and title name-->
-			<img src="imgs/Gadget.png" style="width:80px;height:80px;" alt="Gadget Store Logo" href="home.php">
+			<img src="imgs/Gadget.png" style="width:80px;height:80px;" alt="Gadget Store Logo" href="homepage.php">
 			<h1>Gadget Store</h1>
 			<nav>
-				<a href="home.php">Home</a>
+				<a href="homepage.php">Home</a>
 				<a href="index.php?page=products">Products</a>
 			</nav>
 			<div class="link-icons">
@@ -118,7 +118,7 @@
 	</center>
 	<footer>
             <div class="content-wrapper">
-                <h6 style="color: white;">&copy;2023 Group 1 Gadget Store</h6>
+                <h6>&copy;2023 Group 1 Gadget Store</h6>
             </div>
         </footer>
 </body>

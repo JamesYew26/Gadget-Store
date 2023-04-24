@@ -170,7 +170,7 @@
 
      <footer>
             <div class="content-wrapper">
-                <h6 style="color: white;">&copy;2023 Group 1 Gadget Store</h6>
+                <h6>&copy;2023 Group 1 Gadget Store</h6>
             </div>
         </footer>
 </body>
