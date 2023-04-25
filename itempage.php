@@ -12,7 +12,7 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?=template_header('Home')?>
 
 <div class="featured-itempage">
-    <h2>Gadgets</h2>
+    <h2>Welcome to Gadget Store</h2>
     <p>Cool gadgets that you won't want to miss</p>
 </div>
 <div class="productswesell content-wrapper">

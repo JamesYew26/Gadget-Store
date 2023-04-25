@@ -118,7 +118,7 @@ main .featured p {
 main .featured-itempage {
 	display: flex;
 	flex-direction: column;
-	background-image: url(imgs/banner.jpg);
+	background-image: url(imgs/login-background.jpeg);
 	background-repeat: no-repeat;
 	background-size: cover;
 	height: 550px;

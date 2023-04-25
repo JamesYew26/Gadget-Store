@@ -2,9 +2,9 @@
 function pdo_connect_mysql() {
     // Update the details below with your MySQL details
     $DATABASE_HOST = 'localhost';
-    $DATABASE_USER = 'root';
-    $DATABASE_PASS = '';
-    $DATABASE_NAME = 'shoppingcart';
+    $DATABASE_USER = 'username';
+    $DATABASE_PASS = 'password';
+    $DATABASE_NAME = 'GadgetStore';
     try {
     	return new PDO('mysql:host=' . $DATABASE_HOST . ';dbname=' . $DATABASE_NAME . ';charset=utf8', $DATABASE_USER, $DATABASE_PASS);
     } catch (PDOException $exception) {
@@ -29,11 +29,9 @@ echo <<<EOT
 	<body>
         <header>
             <div class="content-wrapper">
+            <img src="imgs/Gadget.png" style="width:80px;height:80px;" href="itempage.php">
                 <h1>Gadget Store</h1>
-                <nav>
-                    <a href="index.php">Home</a>
-                    <a href="index.php?page=products">Products</a>
-                </nav>
+ 
                 <div class="link-icons">
                     <a href="index.php?page=cart">
 						<i class="fas fa-shopping-cart"></i>
@@ -54,7 +52,7 @@ echo <<<EOT
         </main>
         <footer>
             <div class="content-wrapper">
-                <p>&copy; $year, Shopping Cart System</p>
+                <p>&copy;2023 Group 1 Gadget Store</p>
             </div>
         </footer>
     </body>

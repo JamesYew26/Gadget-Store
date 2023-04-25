@@ -49,4 +49,3 @@ if(!$CheckTable){
 else{
     echo "Table Exists";
 }
-?>

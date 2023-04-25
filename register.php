@@ -73,16 +73,13 @@
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 </head>
 <body style="background-color:#DCDCDC;">
+
      <!--HEADER-->
 	<header style="background-color:white ;">
             <div class="content-wrapper">
 				<!--Logo and title name-->
 				<img src="imgs/Gadget.png" style="width:80px;height:80px;" alt="Gadget Store Logo" href="home.php">
                 <h1>Gadget Store</h1>
-                <nav>
-                    <a href="home.php">Home</a>
-                    <a href="index.php?page=products">Products</a>
-                </nav>
                 <div class="link-icons">
                     <a href="index.php?page=cart">
 						<i class="fas fa-shopping-cart"></i>
