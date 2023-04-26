@@ -384,14 +384,6 @@ login-background {
 
 }
 
-
-.Homebuttons{
-	padding: 12px 20px;
-	font-weight: bold;
-	cursor: pointer;
-        
-}
-
 .loginbtn {
 	display: flex;
 	justify-content: flex-end;

@@ -103,6 +103,7 @@
 			<!--Submit DIV-->
 			<button type="submit" class="btn btn-primary">Login</button>
 			<div class="mt-3"><a href="index.php?page=register" class="ca">Create an account</a>
+			<div class="mt-3"><a href="index.php?page=forgotpassword" class="ca">Forgot Password</a>
 
 		</form>
 	</center>
