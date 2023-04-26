@@ -117,11 +117,11 @@ if ($products_in_cart) {
                         <br>
                         <a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
                     </td>
-                    <td class="price">&dollar;<?=$product['price']?></td>
+                    <td class="price">&#82;&#77;<?=$product['price']?></td>
                     <td class="quantity">
                         <input type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
                     </td>
-                    <td class="price">&dollar;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
+                    <td class="price">&#82;&#77;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
                 </tr>
                 <?php endforeach; ?>
                 <?php endif; ?>
@@ -129,7 +129,7 @@ if ($products_in_cart) {
         </table>
         <div class="subtotal">
             <span class="text">Subtotal</span>
-            <span class="price">&dollar;<?=$subtotal?></span>
+            <span class="price">&#82;&#77;<?=$subtotal?></span>
         </div>
         <div class="buttons">
             <input type="submit" value="Update" name="update">
