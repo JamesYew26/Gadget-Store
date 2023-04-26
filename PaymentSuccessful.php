@@ -15,7 +15,7 @@
             <p>Your Order Has Been Placed, Thank you for ordering with us!</p> 
        
         <div class="Homebuttons">
-            <button onclick="window.location.href='index.php'">Return to Homepage</button> <br>
+            <button onclick="window.location.href='index.php?page=itempage'">Return to Homepage</button> <br>
         </div>
             
             <div class="OrderButton">

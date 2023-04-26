@@ -392,3 +392,10 @@ login-background {
         
 }
 
+.loginbtn {
+	display: flex;
+	justify-content: flex-end;
+	align-items: center;
+	padding-left: 20px; 
+}
+

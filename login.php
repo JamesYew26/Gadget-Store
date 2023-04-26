@@ -1,7 +1,11 @@
+
 <!DOCTYPE html>
 <html>
-
+<?php
+	include 'functions.php';
+	?>
 <head>
+	
 	<style>
 		body {
 			display: flex;
@@ -58,9 +62,11 @@
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+
+	`
 </head>
 
-<body style=background-color:#DCDCDC>
+<body>
 	<!--Padding Top = pt-4-->
 	<!--Padding all sides = p-4-->
 	<!--Margin Bottom = mb-4-->
@@ -69,23 +75,7 @@
 
 
 	<!--HEADER-->
-	<header style="background-color:white ;">
-		<div class="content-wrapper">
-			<!--Logo and title name-->
-			<img src="imgs/Gadget.png" style="width:80px;height:80px;" href="itempage.php">
-			<h1>Gadget Store</h1>
-			
-
-
-
-			<div class="link-icons">
-				<a href="index.php?page=cart">
-					<i class="fas fa-shopping-cart"></i>
-					<span>$num_items_in_cart</span>
-				</a>
-			</div>
-		</div>
-	</header>
+	<?=template_header('Home')?>
 
 
 
@@ -112,14 +102,11 @@
 
 			<!--Submit DIV-->
 			<button type="submit" class="btn btn-primary">Login</button>
-			<div class="mt-3"><a href="register.php" class="ca">Create an account</a>
+			<div class="mt-3"><a href="index.php?page=register" class="ca">Create an account</a>
 
 		</form>
 	</center>
-	<footer>
-            <div class="content-wrapper">
-                <h6>&copy;2023 Group 1 Gadget Store</h6>
-            </div>
-        </footer>
+	
+<?=template_footer()?>
 </body>
 </html>
