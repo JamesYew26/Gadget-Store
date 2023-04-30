@@ -55,6 +55,7 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
     exit;
 }
 
+
 // Send the user to the place order page if they click the Place Order button, also the cart should not be empty
 if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
     header('Location: index.php?page=placeorder');
@@ -145,10 +146,12 @@ if ($products_in_cart) {
         </div>
         <div class="buttons">
             <input type="submit" class="btn btn-secondary" value="Update" name="update">
-            <br>   <br> 
-            
+        </div>
+  
             <?php if (!empty($products)) { ?>
+            <div class="buttons">
             <input type="submit" class="btn btn-primary" value="Make Payment" name="Submit">
+            </div>
           <?php }?>
             <br>
     </form>

@@ -140,13 +140,13 @@ if ($products_in_cart) {
                        VALUES ('1' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered')";
                 
                 
-               
-         if ($conn->query($InsertOrder) === TRUE) {
+               //check query
+       /*  if ($conn->query($InsertOrder) === TRUE) {
                echo "insert data created successfully <br>";}
             else {
                echo "Error: " . $conn->error . "<br>";
                  }       
-               
+       */        
 
                 ?>
                 
