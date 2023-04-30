@@ -10,7 +10,11 @@ if (!$conn) {
 	echo "Connection failed!";
 }
 
-$CreateDB = "CREATE DATABASE IF NOT EXISTS `GadgetStore` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
+if (!$conn) {
+	echo "Connection failed!";
+}
+
+$CreateDB = "CREATE DATABASE IF NOT EXISTS `shoppingcart` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 /*
  //Create userOrder Database
 if ($conn->query($CreateDB) === TRUE) {
@@ -34,8 +38,8 @@ $createTables= "CREATE TABLE IF NOT EXISTS `userOrder` (
     
 
 
-    
-   /* $ok = mysqli_query($conn,$createTables);
+  /*  
+    $ok = mysqli_query($conn,$createTables);
     if(!$ok){
         echo "Table Error "."---> ".$conn->error."<br>";
     }
