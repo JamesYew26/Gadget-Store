@@ -1,17 +1,16 @@
 <?php
-$sname= "localhost";
-$unmae= "root";
-$password = "";
+$servername= "localhost";
+$username= "username";
+$password = "password";
+$db_name = "GadgetStore";
 
-$db_name = "shoppingcart";
-
-$conn = mysqli_connect($sname, $unmae, $password, $db_name);
+$conn = mysqli_connect($servername, $username, $password, $db_name);
 
 if (!$conn) {
 	echo "Connection failed!";
 }
 
-$CreateDB = "CREATE DATABASE IF NOT EXISTS `shoppingcart` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
+$CreateDB = "CREATE DATABASE IF NOT EXISTS `GadgetStore` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 /*
  //Create userOrder Database
 if ($conn->query($CreateDB) === TRUE) {
