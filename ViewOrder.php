@@ -1,11 +1,12 @@
-<?php 
-$sname= "localhost";
-$unmae= "root";
-$password = "";
+<?php
+$servername= "localhost";
+$username= "username";
+$password = "password";
+$db_name = "GadgetStore";
 
-$db_name = "shoppingcart";
 
-$conn = new mysqli($sname, $unmae, $password, $db_name);
+// Create connection
+$conn = new mysqli($servername, $username, $password, $db_name);
 
 $sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered   FROM `userorder` WHERE `userID`=1"; 
 $result = $conn->query($sql);
