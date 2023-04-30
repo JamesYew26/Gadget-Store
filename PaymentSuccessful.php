@@ -15,19 +15,19 @@
         <br><br>
         <center>
             <div><img src="imgs\successful.png" alt="success" style="width:200px;height:200px;"></div>
+            <br>
             <h1 class="font-title">Payment Done Successfully</h1>
             <p>Your Order Has Been Placed, Thank you for ordering with us!</p>
-
+            
+            <div class="btn btn-secondary">
+                <button class="btn btn-secondary" onclick="window.location.href='ViewOrder.php'">View Order</button>
+            </div>
+             
             
             <div class="btn btn-primary">
                 <button class="btn btn-primary" onclick="window.location.href='index.php?page=itempage'">Return to homepage</button>
-            </div>
-
-            <div class="btn btn-secondary">
-                <button class="btn btn-secondary" onclick="window.location.href='index.php?page=receipt'">Order & Receipt</button>
-            </div>
+            </div>           
+            
         </center>
     </main>
 </body>
-
-</html>
