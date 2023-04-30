@@ -36,7 +36,7 @@ $createTables= "CREATE TABLE IF NOT EXISTS `userOrder` (
 
 
     
-    $ok = mysqli_query($conn,$createTables);
+   /* $ok = mysqli_query($conn,$createTables);
     if(!$ok){
         echo "Table Error "."---> ".$conn->error."<br>";
     }
@@ -44,3 +44,4 @@ $createTables= "CREATE TABLE IF NOT EXISTS `userOrder` (
         echo "Table Success";
     }
 
+*/
