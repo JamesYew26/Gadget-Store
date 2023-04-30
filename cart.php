@@ -96,7 +96,7 @@ if ($products_in_cart) {
     <h1>Shopping Cart</h1>
       <div class="alert alert-warning alert-dismissible fade show">
     <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-    <strong>Notice</strong> Please check the Items and Quantity that you need to purchase before making the payment.
+    <strong>Notice:</strong> Please check the Items and Quantity that you need to purchase before making the payment.
   </div>
 
     
@@ -146,11 +146,11 @@ if ($products_in_cart) {
         <div class="buttons">
             <input type="submit" class="btn btn-secondary" value="Update" name="update">
             <br>   <br> 
-          
+            
             <?php if (!empty($products)) { ?>
             <input type="submit" class="btn btn-primary" value="Make Payment" name="Submit">
           <?php }?>
-            <br> 
+            <br>
     </form>
 </div>
         
