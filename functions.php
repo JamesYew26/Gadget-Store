@@ -41,7 +41,11 @@ if (!function_exists('template_header')) {
     
                 <a href="index.php?page=itempage">
                     <h1>Gadget Store</h1>
+                
+                <center
+                <a href="index.php?page=ViewOrder">Order</a> 
                     </a>
+                </center>
      
                     <div class="link-icons">
                         <a href="index.php?page=cart">
