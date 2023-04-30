@@ -141,12 +141,12 @@ if ($products_in_cart) {
                 
                 
                
-         if ($conn->query($InsertOrder) === TRUE) {
+      /*   if ($conn->query($InsertOrder) === TRUE) {
                echo "insert data created successfully <br>";}
             else {
                echo "Error: " . $conn->error . "<br>";
                  }       
-               
+       */        
 
                 ?>
                 
