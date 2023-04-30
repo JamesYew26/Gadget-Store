@@ -15,6 +15,7 @@
     <br><br>
     <center>  
         <div><img src="imgs\cancel.png" alt="cancel" style="width:200px;height:200px;"></div>
+        <br>
         <h1 class="font-title">Payment Cancelled</h1>
         <p>Payment has been cancel for some reason.</p>
             <div class="btn btn-primary">
