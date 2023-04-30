@@ -1,14 +1,9 @@
-<html>
-<link rel="stylesheet" type="text/css" href="style.css">
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 <?php
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
     // Set the post variables so we easily identify them, also make sure they are integer
-    $product_id = (int) $_POST['product_id'];
-    $quantity = (int) $_POST['quantity'];
+    $product_id = (int)$_POST['product_id'];
+    $quantity = (int)$_POST['quantity'];
     // Prepare the SQL statement, we basically are checking if the product exists in our databaser
     $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
     $stmt->execute([$_POST['product_id']]);
@@ -47,7 +42,7 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
     foreach ($_POST as $k => $v) {
         if (strpos($k, 'quantity') !== false && is_numeric($v)) {
             $id = str_replace('quantity-', '', $k);
-            $quantity = (int) $v;
+            $quantity = (int)$v;
             // Always do checks and validation
             if (is_numeric($id) && isset($_SESSION['cart'][$id]) && $quantity > 0) {
                 // Update new quantity
@@ -82,7 +77,7 @@ if ($products_in_cart) {
     $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     // Calculate the subtotal
     foreach ($products as $product) {
-        $subtotal += (float) $product['price'] * (int) $products_in_cart[$product['id']];
+        $subtotal += (float)$product['price'] * (int)$products_in_cart[$product['id']];
     }
 }
 
@@ -90,11 +85,22 @@ if ($products_in_cart) {
 
 ?>
 
-<?= template_header('Cart') ?>
-
+<?=template_header('Cart')?>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        
 <div class="cart content-wrapper">
+    
+    
     <h1>Shopping Cart</h1>
-    <form action="index.php?page=cart" method="post">
+      <div class="alert alert-warning alert-dismissible fade show">
+    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+    <strong>Notice</strong> Please check the Items and Quantity that you need to purchase before making the payment.
+  </div>
+
+    
+    <form action="index.php?page=OrderConfirm" method="post">
         <table>
             <thead>
                 <tr>
@@ -106,100 +112,45 @@ if ($products_in_cart) {
             </thead>
             <tbody>
                 <?php if (empty($products)): ?>
-                    <tr>
-                        <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
-                    </tr>
+                <tr>
+                    <td colspan="5" style="text-align:center;">You have no products added in your Shopping Cart</td>
+                </tr>
                 <?php else: ?>
-                    <?php foreach ($products as $product): ?>
-                        <tr>
-                            <td class="img">
-                                <a href="index.php?page=product&id=<?= $product['id'] ?>">
-                                    <img src="imgs/<?= $product['img'] ?>" width="50" height="50" alt="<?= $product['name'] ?>">
-                                </a>
-                            </td>
-                            <td>
-                                <a href="index.php?page=product&id=<?= $product['id'] ?>"><?= $product['name'] ?></a>
-                                <br>
-                                <a href="index.php?page=cart&remove=<?= $product['id'] ?>" class="remove">Remove</a>
-                            </td>
-                            <td class="price">&#82;&#77;
-                                <?= $product['price'] ?>
-                            </td>
-                            <td class="quantity">
-                                <input type="number" name="quantity-<?= $product['id'] ?>"
-                                    value="<?= $products_in_cart[$product['id']] ?>" min="1" max="<?= $product['quantity'] ?>"
-                                    placeholder="Quantity" required>
-                            </td>
-                            <td class="price">&#82;&#77;
-                                <?= $product['price'] * $products_in_cart[$product['id']] ?>
-                            </td>
-                        </tr>
-                    <?php endforeach; ?>
+                <?php foreach ($products as $product): ?>
+                <tr>
+                    <td class="img">
+                        <a href="index.php?page=product&id=<?=$product['id']?>">
+                            <img src="imgs/<?=$product['img']?>" width="50" height="50" alt="<?=$product['name']?>">
+                        </a>
+                    </td>
+                    <td>
+                        <a href="index.php?page=product&id=<?=$product['id']?>"><?=$product['name']?></a>
+                        <br>
+                        <a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a>
+                    </td>
+                    <td class="price">&#82;&#77;<?=$product['price']?></td>
+                    <td class="quantity">
+                        <input type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required>
+                    </td>
+                    <td class="price">&#82;&#77;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
+                </tr>
+
+                <?php endforeach; ?>
                 <?php endif; ?>
             </tbody>
         </table>
         <div class="subtotal">
             <span class="text">Subtotal</span>
-            <span class="price">&#82;&#77;
-                <?= $subtotal ?>
-            </span>
+            <span class="price">&#82;&#77;<?=$subtotal?></span>
         </div>
         <div class="buttons">
-            <input type="submit" value="Update" name="update">
-            <br> <br>
-
-            <?php
-
-            if ($subtotal != 0 && $subtotal > 0) { ?>
-
-                <div id="paypal-button-container" action="index.php?page=placeorder" class="paypal-button-container"> </div>
-            <?php } ?>
-        </div>
-
-        <script
-            src="https://www.paypal.com/sdk/js?client-id=AUmxKOm63zam86G8doC6ZZMGmsb2rPwgbrCICp2hyga_DxUxfNBbqoxqWVQr_5h5_xTg3VSxU3hU7aQe&currency=MYR&disable-funding=credit,card"></script>
-        <script>
-            paypal.Buttons({
-
-                style: {
-                    layout: 'horizontal',
-                    shape: 'pill',
-                    label: 'pay',
-                    height: 40
-                },
-
-                //sets up the transaction when a payment buttonis clicked
-                createOrder: function (data, actions) {
-                    return actions.order.create({
-                        purchase_units: [{
-                            amount: {
-                                value: '<?= $subtotal ?>'//can aslo reference a variable or function
-                            }
-                        }]
-                    });
-                },
-
-                onCancel: function (data) {
-                    window.location.href = "PaymentCancel.php";
-                },
-
-                //Finalize the transaction after payer approval
-                onApprove: function (data, actions) {
-                    // Finalize the transaction after payer approval
-                    return actions.order.capture().then(function (orderData) {
-
-                        window.location.href = "PaymentSuccessful.php";
-                        // Successful capture! For dev/demo purposes:')";
-                        console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
-                        const transaction = orderData.purchase_units[0].payment.captures[0];
-                        alert(`Transaction ${transaction.status}: ${transaction.id}\n\nSee console for all available details`);
-                    });
-                }
-            }).render('#paypal-button-container');
-        </script>
+            <input type="submit" class="btn btn-secondary" value="Update" name="update">
+            <br>   <br> 
+            
+            <input type="submit" class="btn btn-primary" value="Make Payment" name="Submit">
+            <br> 
     </form>
 </div>
+        
 
-<?= template_footer() ?>
-
-</html>
+<?=template_footer()?>
