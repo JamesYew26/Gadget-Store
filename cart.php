@@ -146,8 +146,10 @@ if ($products_in_cart) {
         <div class="buttons">
             <input type="submit" class="btn btn-secondary" value="Update" name="update">
             <br>   <br> 
-            
+          
+            <?php if (!empty($products)) { ?>
             <input type="submit" class="btn btn-primary" value="Make Payment" name="Submit">
+          <?php }?>
             <br> 
     </form>
 </div>
