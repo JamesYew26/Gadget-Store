@@ -1,4 +1,5 @@
 <?php
+
 // If the user clicked the add to cart button on the product page we can check for the form data
 if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['product_id']) && is_numeric($_POST['quantity'])) {
     // Set the post variables so we easily identify them, also make sure they are integer
@@ -30,15 +31,6 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
     exit;
 }
 
-
-
-
-
-// Send the user to the place order page if they click the Place Order button, also the cart should not be empty
-if (isset($_POST['placeorder']) && isset($_SESSION['cart']) && !empty($_SESSION['cart'])) {
-    header('Location: index.php?page=index.php');
-    exit;
-}
 
 // Check the session variable for products in cart
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
@@ -141,12 +133,12 @@ if ($products_in_cart) {
                 
                 
                //check query
-       /*  if ($conn->query($InsertOrder) === TRUE) {
-               echo "insert data created successfully <br>";}
+        if ($conn->query($InsertOrder) === TRUE) {
+               echo " <br>";}
             else {
                echo "Error: " . $conn->error . "<br>";
                  }       
-       */        
+            
 
                 ?>
                 
