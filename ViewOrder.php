@@ -1,16 +1,13 @@
 <?php 
+$sname= "localhost";
+$unmae= "root";
+$password = "";
 
-$servername= "localhost";
-$username= "username";
-$password = "password";
-$db_name = "GadgetStore";
+$db_name = "shoppingcart";
 
+$conn = new mysqli($sname, $unmae, $password, $db_name);
 
-// Create connection
-$conn = new mysqli($servername, $username, $password, $db_name);
-
-
-$sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered   FROM `userorder` WHERE `userID`=1"; 
+$sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered,invoiceID   FROM `userorder` WHERE `userID`=1"; 
 $result = $conn->query($sql);
 ?>
 
@@ -31,27 +28,28 @@ $result = $conn->query($sql);
         <h2>Customer Ordered</h2>
  <br><br>
  <div class="container" style="text-align: center">
-<table class="table table-hover">
+<table class="table table-striped">
             <tr class="table-primary">
                 <th>Customer ID</th>
                 <th>Product ID</th>
                 <th>Product Name</th>
                 <th>Product Image</th>
                 <th>Quantity </th>
-                <th>Per Unit Price</th>
-                <th>Price</th>
+                <th>Price Per Unit(RM)</th>
+                <th>Total(RM)</th>
                 <th>Date Ordered</th>
+                <th>Invoice ID</th>
             </tr>
 
   <?php
 if ($result -> num_rows>0){
 while ($row = $result->fetch_assoc()){
-    echo "<tr><td>".$row["userID"]."</td><td>".$row["productID"]."</td><td>".$row["name"]."</td><td><img idth='50' height='50' src='imgs/".$row["img"]."'></td><td>".$row["quantity"]."</td><td>".$row["rrp"]."</td><td>".$row["price"]."</td><td>".$row["date_ordered"]."</td></tr>";
+    echo "<tr><td>".$row["userID"]."</td><td>".$row["productID"]."</td><td>".$row["name"]."</td><td><img idth='50' height='50' src='imgs/".$row["img"]."'></td><td>".$row["quantity"]."</td><td>".$row["rrp"]."</td><td>".$row["price"]."</td><td>".$row["date_ordered"]."</td><td>".$row["invoiceID"]."</td></tr>";
 }
       echo "</table>";
   }
   else {
-      echo "Haven't place any order yet.";
+      echo "No Place any order yet.";
   }
       $conn->close();        
    ?>

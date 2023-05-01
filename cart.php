@@ -78,8 +78,8 @@ if ($products_in_cart) {
     <strong>Notice:</strong> Please check the Items and Quantity that you need to purchase before making the payment.
   </div>
     
-            <div class="btn btn-secondary" style="text-align: right; margin-left: 910px;" >
-                <button class="btn btn-secondary" onclick="window.location.href='ViewOrder.php'" style="text-align: right">View Order</button>
+            <div class="btn btn-secondary" style="text-align: right; margin-left: 935px;" >
+                <button class="btn btn-secondary btn-sm" onclick="window.location.href='ViewOrder.php'" style="text-align: right">View Order</button>
             </div>
 
     <form action="index.php?page=OrderConfirm" method="post">
