@@ -35,8 +35,10 @@ if (isset($_POST['product_id'], $_POST['quantity']) && is_numeric($_POST['produc
 if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['cart']) && isset($_SESSION['cart'][$_GET['remove']])) {
     // Remove the product from the shopping cart
     unset($_SESSION['cart'][$_GET['remove']]);
-}
+} ?>
 
+<?php
+function updateProduct(){
 // Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
 if (isset($_POST['update']) && isset($_SESSION['cart'])) {
     // Loop through the post data so we can update the quantities for every product in cart
@@ -51,13 +53,15 @@ if (isset($_POST['update']) && isset($_SESSION['cart'])) {
             }
         }
     }
+    
     // Prevent form resubmission...
     header('location: index.php?page=cart');
     exit;
 }
+}
+?>
 
-
-
+<?php
 // Check the session variable for products in cart
 $products_in_cart = isset($_SESSION['cart']) ? $_SESSION['cart'] : array();
 $products = array();
@@ -96,16 +100,17 @@ if ($products_in_cart) {
     <strong>Notice:</strong> Please check the Items and Quantity that you need to purchase before making the payment.
   </div>
 
-    
     <form action="index.php?page=OrderConfirm" method="post">
+
         <table>
             <thead>
                 <tr>
                     <td colspan="2">Product</td>
-                    <td>Price</td>
+                    <td>Price Per Unit</td>
                     <td>Quantity</td>
-                    <td>Total</td>
                     <td>Action</td>
+                    <td>Total</td>
+
                 </tr>
             </thead>
             <tbody>
@@ -124,15 +129,17 @@ if ($products_in_cart) {
                     <td>
                         <a href="index.php?page=product&id=<?=$product['id']?>"><?=$product['name']?></a>
                         <br>
-                        
+
                     </td>
+                    
                     <td class="price">&#82;&#77;<?=$product['price']?></td>
                     <td class="quantity">
-                        <a style="text-align: center"><?=$products_in_cart[$product['id']]?> </a>
+                        <input style="border: none;" type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required readonly>
                     </td>
-                    <td class="price">&#82;&#77;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
-                    
-                    <td class="remove"><a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a></td>
+
+                   <td class="remove"><a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a></td>
+                   
+                <td class="price">&#82;&#77;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
                 </tr>
 
                 <?php endforeach; ?>
@@ -140,23 +147,18 @@ if ($products_in_cart) {
             </tbody>
         </table>
         <div class="subtotal">
-            <span class="text">Subtotal</span>
+            <span class="text">Total</span>
             <span class="price">&#82;&#77;<?=$subtotal?></span>
         </div>
         
-       <!--    
-       <div class="buttons">
-            <input type="submit" class="btn btn-secondary" value="Update" name="update">
-        </div>  
-       -->
-  
-          <?php if (!empty($products)) { ?>
+ 
+         <br>
+               <?php if (!empty($products)) { ?>
             <div class="buttons">
             <input type="submit" class="btn btn-primary" value="Make Payment" name="Submit">
             </div>
           <?php }?>
-            <br>
-    </form>
+ </form>
 
 </div>
         
