@@ -37,29 +37,7 @@ if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['ca
     unset($_SESSION['cart'][$_GET['remove']]);
 } ?>
 
-<?php
-function updateProduct(){
-// Update product quantities in cart if the user clicks the "Update" button on the shopping cart page
-if (isset($_POST['update']) && isset($_SESSION['cart'])) {
-    // Loop through the post data so we can update the quantities for every product in cart
-    foreach ($_POST as $k => $v) {
-        if (strpos($k, 'quantity') !== false && is_numeric($v)) {
-            $id = str_replace('quantity-', '', $k);
-            $quantity = (int)$v;
-            // Always do checks and validation
-            if (is_numeric($id) && isset($_SESSION['cart'][$id]) && $quantity > 0) {
-                // Update new quantity
-                $_SESSION['cart'][$id] = $quantity;
-            }
-        }
-    }
-    
-    // Prevent form resubmission...
-    header('location: index.php?page=cart');
-    exit;
-}
-}
-?>
+
 
 <?php
 // Check the session variable for products in cart
@@ -137,7 +115,7 @@ if ($products_in_cart) {
                         <input style="border: none;" type="number" name="quantity-<?=$product['id']?>" value="<?=$products_in_cart[$product['id']]?>" min="1" max="<?=$product['quantity']?>" placeholder="Quantity" required readonly>
                     </td>
 
-                   <td class="remove"><a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove">Remove</a></td>
+                    <td  class="remove"><a href="index.php?page=cart&remove=<?=$product['id']?>" class="remove"color="red"><font color="FF7777">Remove</font></a></td>
                    
                 <td class="price">&#82;&#77;<?=$product['price'] * $products_in_cart[$product['id']]?></td>
                 </tr>
