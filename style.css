@@ -390,4 +390,10 @@ login-background {
 	align-items: center;
 	padding-left: 20px; 
 }
+.error p {
+	color:#FF0000;
+	font-size:20px;
+	font-weight:bold;
+	margin:50px;
+	}
 

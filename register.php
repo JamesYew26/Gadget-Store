@@ -63,10 +63,6 @@
 			margin: 20px auto;
 		}
 
-          .contacts{
-               color: #BBBBBB;
-               text-decoration: line-through;
-          }
 	</style>
 
 	<title>SIGN UP</title>

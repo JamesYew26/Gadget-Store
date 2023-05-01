@@ -4,6 +4,7 @@ $servername= "localhost";
 $username= "username";
 $password = "password";
 $db_name = "GadgetStore";
+$error = "";
 
 
 // Create connection
@@ -13,9 +14,10 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 if ($conn->connect_error) {
   die("FAIL: " . $conn->connect_error);
 }
-echo "SUCCCCCCCC CONEXION<br>";
 
 
+
+/*
 //Create Database
 $CreateDB = "CREATE DATABASE IF NOT EXISTS `GadgetStore` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 if ($conn->query($CreateDB) === TRUE) {
@@ -49,3 +51,4 @@ if(!$CheckTable){
 else{
     echo "Table Exists";
 }
+*/
