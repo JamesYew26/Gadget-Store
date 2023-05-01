@@ -131,16 +131,16 @@ if ($products_in_cart) {
 
                 
                 $InsertOrder ="INSERT INTO `userorder`(`userID`,`productID`,`name`,`desc`,`price`,`rrp`,`quantity`,`img`,`date_ordered`,`invoiceID` ) 
-                       VALUES ('1' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered',' $invoice_ID')";
+                       VALUES ('1' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered','$invoice_ID')";
                 
                 
                //check query
-       /* if ($conn->query($InsertOrder) === TRUE) {
+        if ($conn->query($InsertOrder) === TRUE) {
                echo " <br>";}
             else {
                echo "Error: " . $conn->error . "<br>";
                  }       
-            */
+            
 
                 ?>
                 
