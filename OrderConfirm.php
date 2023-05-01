@@ -135,12 +135,12 @@ if ($products_in_cart) {
                 
                 
                //check query
-        if ($conn->query($InsertOrder) === TRUE) {
+       /* if ($conn->query($InsertOrder) === TRUE) {
                echo " <br>";}
             else {
                echo "Error: " . $conn->error . "<br>";
                  }       
-            
+            */
 
                 ?>
                 
