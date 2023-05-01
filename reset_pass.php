@@ -1,9 +1,6 @@
 
 <html>
     <head>
-        <style>
-            
-            </style>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -57,7 +54,7 @@ as valid only 24 hours (1 days after request).<br /><br /></p>";
         }
     }
     if ($error != "") {
-        echo "<div class='error'>" . $error . "</div><br />";
+        echo "<div class='error'>" . $error . "</div><br/>";
     }
 } // isset email key validate end
 
