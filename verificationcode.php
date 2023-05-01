@@ -1,9 +1,53 @@
 
-<?php include "connect_db.php"; 
-include "functions.php"?>
+<?php include "connect_db.php";
+include "functions.php"
+?>
 
 <html>
 <head>
+<style>
+		body {
+			display: flex;
+			flex-direction: column;
+			font-family: sans-serif;
+			box-sizing: border-box;
+		}
+
+		* {
+			font-family: sans-serif;
+			box-sizing: border-box;
+		}
+
+		form {
+			margin-top: 30px;
+			width: 500px;
+			border: 2px solid #ccc;
+			padding: 30px;
+			background: #fff;
+			border-radius: 15px;
+		}
+
+		h2 {
+			text-align: center;
+			margin-bottom: 40px;
+		}
+
+		input {
+			display: block;
+			border: 2px solid #ccc;
+			width: 95%;
+			padding: 10px;
+			margin: 10px auto;
+			border-radius: 5px;
+		}
+
+		label {
+			color: #888;
+			font-size: 18px;
+			padding: 10px;
+		}
+
+	</style>
     <title>Verification Code</title>
     <link rel="stylesheet" type="text/css" href="style.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -12,30 +56,29 @@ include "functions.php"?>
 </head>
 
 <body>
-    <div class="container">
-        <div class="row">
-            <div class="col-md-4 offset-md-4 form">
+     <!--HEADER-->
+<?=template_header('Home')?>
+
+<center>
+    <div class="form">
                 <form action="reset_pass.php" method="POST" autocomplete="off">
-                    <h2 class="text-center">Enter OTP Code</h2>
+                    <h2 class="text-center"></h2>
+
                     <?php
-                    
-
-
-
                     if (isset($_SESSION['info'])) {
                         ?>
-                        <div class="alert alert-success text-center" style="padding: 0.4rem 0.4rem">
+                        <div class="success" style="padding: 0.4rem 0.4rem">
                             <?php echo $_SESSION['info']; ?>
                         </div>
                         <?php
                     }
                     ?>
                     <?php
-                    if (count($error) > 0) {
+                    if (count((is_countable($error)?$error:[]))>0);  {
                         ?>
-                        <div class="alert alert-danger text-center">
+                        <div class="error">
                             <?php
-                            foreach ($error as $showerror) {
+                            foreach ((array)$error as $showerror) {
                                 echo $showerror;
                             }
                             ?>
@@ -43,16 +86,19 @@ include "functions.php"?>
                         <?php
                     }
                     ?>
-                    <div class="form-group">
-                        <input class="form-control" type="number" name="otp" placeholder="Enter code" required>
+            
+                    <div class="mb-3 mt-5">
+                        <input type="number" name="otp" placeholder="Enter code" required>
                     </div>
-                    <div class="form-group">
-                        <input class="form-control button" type="submit" name="check-reset-otp" value="Submit">
+                    <div class="mb-3 mt-5">
+                    <button type="submit" class="btn btn-primary" name="check-reset-otp" value="Submit">Submit</button>
                     </div>
                 </form>
-            </div>
-        </div>
     </div>
+</center>
+
+
+<?=template_footer()?>
 </body>
 
 </html>

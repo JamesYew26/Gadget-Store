@@ -1,4 +1,5 @@
 <html>
+
 <head>
    <title>Forgot Password</title>
    <style>
@@ -140,28 +141,36 @@ your account and change your security password as someone may have guessed it.</
       if (!$mail->Send()) {
          echo "Mailer Error: " . $mail->ErrorInfo;
       } else {
-         echo "<div class='success'>
-<p>An email has been sent to you with instructions on how to reset your password.</p>
-</div><br /><br /><br />";
+         echo "<center>
+         <form action='verificationcode.php' method='post>
+         <div class='success'>
+<p>An email has been sent to you with instructions on how to reset your password. </p> 
+</div>
+<button type='submit' class='btn btn-primary mt-5'>Verify OTP</button>
+</form>
+</center>
+<br /><br /><br />";
       }
    }
 } else {
    ?>
-   	<!--HEADER-->
-	<?=template_header('Home')?>
-<center>
-   <form method="post" action="verificationcode.php" name="reset">
-   <h2>Forgot Password</h2>
-      <input class="mt-5" type="email" name="email" placeholder="username@email.com" />
-      <button type="submit" class="btn btn-primary mt-5">Send OTP</button>
-   </form>
-</center>
+   <!--HEADER-->
+   <?= template_header('Home') ?>
+
+   <center>
+      <form method="post" action="" name="reset">
+         <h2>Forgot Password</h2>
+         <input class="mt-5" type="email" name="email" placeholder="username@email.com" />
+         <button type="submit" class="btn btn-primary mt-5">Send OTP</button>
+      </form>
+   </center>
+
    <p>&nbsp;</p>
    <p>&nbsp;</p>
    <p>&nbsp;</p>
 <?php } ?>
 
 
-<?=template_footer()?>
+<?= template_footer() ?>
 
 </html>
