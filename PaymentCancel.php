@@ -15,11 +15,12 @@
     <br><br>
     <center>  
         <div><img src="imgs\cancel.png" alt="cancel" style="width:200px;height:200px;"></div>
+        <br>
         <h1 class="font-title">Payment Cancelled</h1>
         <p>Payment has been cancel for some reason.</p>
-        <div class="Homebuttons">
-        <button class="btn btn-primary"onclick="window.location.href='index.php'">Return to Homepage</button>
-        </div>
+            <div class="btn btn-primary">
+                <button class="btn btn-primary" onclick="window.location.href='index.php?page=itempage'">Return to homepage</button>
+            </div>
    </center>
 </main>
 </body>
