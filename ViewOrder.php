@@ -48,7 +48,7 @@ while ($row = $result->fetch_assoc()){
       echo "</table>";
   }
   else {
-      echo "No Place any order yet.";
+      echo "No Order yet.";
   }
       $conn->close();        
    ?>
