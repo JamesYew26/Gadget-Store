@@ -62,14 +62,15 @@ COMMIT;
 $Table = "SELECT * FROM Credential";
 $CheckTable = mysqli_query($conn,$Table);
 if(!$CheckTable){
-    $CreateTable = "CREATE TABLE Credential
-        (id int(11) NOT NULL AUTO_INCREMENT,
-        username varchar(255) NOT NULL,
-        password varchar(255)NOT NULL,
-        name varchar(255),
-        email varchar(255),
-        PRIMARY KEY (id)) 
-        ENGINE=InnoDB DEFAULT CHARSET=latin1";
+    $CreateTable = "CREATE TABLE `Credential` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+
     $ok = mysqli_query($conn,$CreateTable);
     if(!$ok){
         echo "Table Error "."---> ".$conn->error."<br>";
