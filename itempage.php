@@ -8,7 +8,7 @@
 include 'functions.php';
 $pdo = pdo_connect_mysql();
 // Get the 12 most recently added products
-$stmt = $pdo->prepare('SELECT * FROM products ORDER BY date_added DESC LIMIT 12');
+$stmt = $pdo->prepare('SELECT * FROM products ORDER BY id ASC LIMIT 12');
 $stmt->execute();
 $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
