@@ -1,9 +1,9 @@
 <?php
 session_start();
 $db_host = 'localhost';
-$db_name = 'shoppingcart';
-$db_user = 'root';
-$db_pass = '';
+$db_name = 'GadgetStore';
+$db_user = 'username';
+$db_pass = 'password';
 try {
 	$pdo = new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=utf8', $db_user, $db_pass);
 	$pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
