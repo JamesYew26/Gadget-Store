@@ -84,12 +84,13 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
       $results = mysqli_query($conn, $sel_query);
       $row = mysqli_num_rows($results);
       if ($row == "") {
-         $error .= "<p>No user is registered with this email address!</p>";
+         $error .= "
+         <p><center>No user is registered with this email address!</center></p>";
       }
    }
    if ($error != "") {
       echo "<div class='error'>" . $error . "</div>
-   <br /><a href='javascript:history.go(-1)'>Go Back</a>";
+      <p><center><a href='javascript:history.go(-1)'><button class='btn btn-primary'>Go Back</button></a></center></p>";
    } else {
       $expFormat = mktime(
          date("H"),

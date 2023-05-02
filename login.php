@@ -1,11 +1,11 @@
-
 <!DOCTYPE html>
 <html>
 <?php
-	include 'functions.php';
-	?>
+include 'functions.php';
+?>
+
 <head>
-	
+
 	<style>
 		body {
 			display: flex;
@@ -57,6 +57,8 @@
 			margin: 20px auto;
 		}
 	</style>
+
+	
 	<title>LOGIN</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -75,7 +77,7 @@
 
 
 	<!--HEADER-->
-	<?=template_header('Home')?>
+	<?= template_header('Home') ?>
 
 
 
@@ -103,11 +105,12 @@
 			<!--Submit DIV-->
 			<button type="submit" class="btn btn-primary">Login</button>
 			<div class="mt-3"><a href="index.php?page=register" class="ca">Create an account</a>
-			<div class="mt-3"><a href="index.php?page=forgotpass" class="ca">Forgot Password</a>
+				<div class="mt-3"><a href="index.php?page=forgotpass" class="ca">Forgot Password</a>
 
 		</form>
 	</center>
-	
-<?=template_footer()?>
+
+	<?= template_footer() ?>
 </body>
+
 </html>
