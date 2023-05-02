@@ -1,3 +1,4 @@
+
 <?php
 
 // If the user clicked the add to cart button on the product page we can check for the form data
@@ -52,8 +53,6 @@ if ($products_in_cart) {
     }
 }
 
-
-
 ?>
 
 <html>
@@ -71,20 +70,22 @@ if ($products_in_cart) {
     </head>
     <body>
 <main>
-
+ <?php $invoice_ID = rand(1,999999); ?>
 <div class="cart content-wrapper">
-    <h1>User's Order Confirmation</h1>
+    <h1>User's Order Confirm</h1>
     <form action="index.php?page=cart" method="post">
+
         <table>
             <thead>
                 <tr> 
                     <td colspan="2">Product</td>
-                    <td>Price</td>
+                    <td>Price Per Unit</td>
                     <td>Quantity</td>
                     <td>Total</td>
                 </tr>
             </thead>
             <tbody>
+
                 <?php if (empty($products)): ?>
                 <tr>
                     <td colspan="5" style="text-align:center;">You haven't place any order yet</td>
@@ -114,7 +115,7 @@ if ($products_in_cart) {
                 </tr>
                 
                 <?php 
-                
+                 
                 
                 date_default_timezone_set("Asia/Kuala_Lumpur");
                 include "userOrder_Database.php";
@@ -126,10 +127,11 @@ if ($products_in_cart) {
                 $quantity = (int)$products_in_cart[$product['id']];
                 $imgs= $product['img'];
                 $date_ordered = date('Y-m-d  H:i:sa');
+
+
                 
-                
-                $InsertOrder ="INSERT INTO `userorder`(`userID`,`productID`,`name`,`desc`,`price`,`rrp`,`quantity`,`img`,`date_ordered`) 
-                       VALUES ('1' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered')";
+                $InsertOrder ="INSERT INTO `userorder`(`userID`,`productID`,`name`,`desc`,`price`,`rrp`,`quantity`,`img`,`date_ordered`,`invoiceID` ) 
+                       VALUES ('1' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered','$invoice_ID')";
                 
                 
                //check query
@@ -153,7 +155,7 @@ if ($products_in_cart) {
         </div>
         
 
-                   <?php
+           <?php
             
             if ($subtotal!=0 && $subtotal>0){ ?>
                   
@@ -184,6 +186,7 @@ if ($products_in_cart) {
           },
                  
            onCancel: function (data) {
+           $deleteDatabase="DELETE FROM `userorder` WHERE invoiceID='$invoice_ID'";
            window.location.href = "PaymentCancel.php";
             },
             
@@ -206,3 +209,4 @@ if ($products_in_cart) {
         </main>
 </body>
 </html>
+<?php /*echo $invoice_ID ;*/?>

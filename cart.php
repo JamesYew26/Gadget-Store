@@ -78,10 +78,10 @@ if ($products_in_cart) {
     <strong>Notice:</strong> Please check the Items and Quantity that you need to purchase before making the payment.
   </div>
     
-            <div class="btn btn-secondary" style="text-align: right; margin-left: 910px;" >
-                <button class="btn btn-secondary" onclick="window.location.href='ViewOrder.php'" style="text-align: right">View Order</button>
+            <div>
+                 <button  class="btn btn-primary active" onclick="window.location.href='index.php?page=itempage'">Return to homepage</button>
+                <button style="float: right; width: 130px" class="btn btn-secondary" onclick="window.location.href='ViewOrder.php'" style="text-align: right">View Order</button>
             </div>
-
     <form action="index.php?page=OrderConfirm" method="post">
 
         <table>
@@ -132,16 +132,16 @@ if ($products_in_cart) {
             <span class="text">Total</span>
             <span class="price">&#82;&#77;<?=$subtotal?></span>
         </div>
-        
- 
-         <br>
+  
                <?php if (!empty($products)) { ?>
             <div class="buttons">
             <input type="submit" class="btn btn-primary" value="Make Payment" name="Submit">
             </div>
           <?php }?>
+                
  </form>
-
+                
+    
 </div>
         
 
