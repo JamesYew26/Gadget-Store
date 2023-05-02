@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `accounts` (
 
 INSERT INTO `accounts` (`id`, `email`, `password`, `full_name`, `role`, `secret`, `last_seen`, `status`) VALUES
 (1, 'admin@gmail.com', '$2y$10$thE7hIJF/EJvKjmJy7hd5uH3a/BNgSUepkYoES0q80YEzi7VqWsRG', 'admin1', 'Operator', '', '2023-04-03 02:03:01', 'Idle');
-(2, 'john@gmail.com','','john123','Guest','','','Idle')
+
 
 CREATE TABLE IF NOT EXISTS `conversations` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
