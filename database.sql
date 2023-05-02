@@ -36,7 +36,7 @@ CREATE TABLE IF NOT EXISTS `messages` (
 
 
 
-/*  create userOrder Table  */
+
 CREATE TABLE IF NOT EXISTS `userOrder` (
   `userID` int(11) NOT NULL ,
 	`productID` int(11) NOT NULL,
@@ -79,21 +79,17 @@ INSERT INTO `Products` (`id`, `name`, `desc`, `price`, `rrp`, `quantity`, `img`,
 (11, 'Huawei FreeBuds Pro 2', '<p>Huawei FreeBuds Pro 2</p>\r\n<p>&#9900; Pure Voice</p>\r\n<p>&#9900; Dual-Speaker True sound </p>\r\n<p>&#9900; Bluetooh 5.2 wireless technology</p>\r\n<p>&#9900; Silver Frost colour</p>\r\n\r\Huawei FreeBuds Pro 2 suppoer LDAC high resolution codec, 4 and is certified both by HWA and Hi-Res Audio Wireless, supporting blazing-fast transmission', '899.00', '0.00', 50, 'HuaweiFreeBudsPro2.jpg', '2022-08-01 18:50:56'),
 (12, 'Harman Kardon Aura Studio 3\r\n', '<p>Harman Kardon Aura Studio 3</p>\r\n<p>&#9900; Weight: 3.6kg (7.9lb)</p>\r\n<p>&#9900; Bluetooh 4.2 wireless technology</p>\r\n<p>&#9900; Ambient Light</p>\r\n<p>&#9900; Exceptional 360-degree sound</p>\r\n<p>&#9900; Wireless streaming with Bluetooth</p>\r\n<p>The art of beautiful sound. With a domed design, premium materials, and ambient light effects, the iconic Harman Kardon Aura Studio 3 makes a modern statement in your home</p>\r\n\r\n', '1399.00', '0.00', 50, 'AuraStudio3.jpg', '2020-07-01 17:42:04');
 
-Indexes for dumped tables
- 
-Indexes for table `Products`
  
 ALTER TABLE `Products`
   ADD PRIMARY KEY (`id`);
 
-AUTO_INCREMENT for table `Products`
+
 
 ALTER TABLE `Products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 
-/* Create Credential table*/
 CREATE TABLE `Credential` (
   `id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
