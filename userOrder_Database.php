@@ -10,7 +10,7 @@ if (!$conn) {
 	echo "Connection failed!";
 }
 
-$CreateDB = "CREATE DATABASE IF NOT EXISTS `shoppingcart` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
+$CreateDB = "CREATE DATABASE IF NOT EXISTS `GadgetStore` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci";
 /*
  //Create userOrder Database
 if ($conn->query($CreateDB) === TRUE) {
