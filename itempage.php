@@ -6,6 +6,7 @@
 <?php
 
 include 'functions.php';
+include 'index.html';
 $pdo = pdo_connect_mysql();
 // Get the 12 most recently added products
 $stmt = $pdo->prepare('SELECT * FROM products ORDER BY id ASC LIMIT 12');
