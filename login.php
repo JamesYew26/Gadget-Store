@@ -2,6 +2,7 @@
 <html>
 <?php
 include 'functions.php';
+include 'index.html';
 ?>
 
 <head>
