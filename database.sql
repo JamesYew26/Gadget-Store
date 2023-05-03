@@ -87,7 +87,7 @@ ALTER TABLE `Products`
 
 ALTER TABLE `Products`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-COMMIT;
+
 
 
 CREATE TABLE `Credential` (
@@ -97,4 +97,4 @@ CREATE TABLE `Credential` (
   `name` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;"
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
