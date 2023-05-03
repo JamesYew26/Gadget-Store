@@ -6,7 +6,7 @@ $db_name = "GadgetStore";
 
 $conn = mysqli_connect($servername, $username, $password, $db_name);
 
-$sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered,invoiceID   FROM `userorder` WHERE `userID`=1"; 
+$sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered,invoiceID   FROM `userorder` WHERE `userID`=1001"; 
 $result = $conn->query($sql);
 ?>
 
