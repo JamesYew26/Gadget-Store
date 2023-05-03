@@ -187,6 +187,7 @@ if ($products_in_cart) {
                  
            onCancel: function (data) {
            $deleteDatabase="DELETE FROM `userorder` WHERE invoiceID='$invoice_ID'";
+           //$conn->query($deleteDatabase);
            window.location.href = "PaymentCancel.php";
             },
             
@@ -195,7 +196,7 @@ if ($products_in_cart) {
         // Finalize the transaction after payer approval
         return actions.order.capture().then(function(orderData) {
 
-            window.location.href = "PaymentSuccessful.php";
+          window.location.href = "PaymentSuccessful.php";
             // Successful capture! For dev/demo purposes:')";
             console.log('Capture result', orderData, JSON.stringify(orderData, null, 2));
             const transaction = orderData.purchase_units[0].payment.captures[0];
