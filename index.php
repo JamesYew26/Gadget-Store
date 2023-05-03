@@ -7,7 +7,7 @@
 session_start();
 // Include functions and connect to the database using PDO MySQL
 include 'functions.php';
-include 'index.html';
+
 $pdo = pdo_connect_mysql();
 
 // Page is set to home (itempage.php) by default, so when the visitor visits, that will be the page they see.
