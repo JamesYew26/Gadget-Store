@@ -2,8 +2,8 @@
 // Below is optional, remove if you have already connected to your database.
 $mysqli = mysqli_connect('localhost', 'username', 'password', 'gadgetstore');
 
-// Get the total number of records from our table "Credential".
-$total_pages = $mysqli->query('SELECT * FROM Credential')->num_rows;
+// Get the total number of records from our table "users".
+$total_pages = $mysqli->query('SELECT * FROM credential')->num_rows;
 
 // Check if the page number is specified and check if it's a number, if not return the default page number which is 1.
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
@@ -11,7 +11,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 // Number of results to show on each page.
 $num_results_on_page = 10;
 
-if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')) {
+if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);
@@ -32,8 +32,11 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
                 }
                 table {
                     border-collapse: collapse;
-                    width: 600px;
+                    width: 1000px;
 
+                }
+                header {
+                    border-bottom: 1px solid #EEEEEE;
                 }
                 td, th {
                     padding: 15px;
@@ -48,6 +51,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
                 td {
                     color: #636363;
                     border: 1px solid #dddfe1;
+                    text-align: center;
                 }
                 tr {
                     background-color: #f9fafb;
@@ -65,6 +69,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
                     display: inline-flex;
                     justify-content: space-between;
                     box-sizing: border-box;
+
                 }
                 .pagination li {
                     box-sizing: border-box;
@@ -99,6 +104,13 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
             </style>
         </head>
         <body>
+            <header>
+                <div class="content-wrapper">
+                <img src="imgs/Gadget.png" style="width:60px;height:60px;">
+                <input style="float: right; width: 130px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
+                </div>
+            </header>
+           
             <table class="center">
                 <tr>
                     <th>ID</th>
@@ -107,8 +119,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
                     <th>Name</th>
                     <th>E-mail</th>
                     <th>Contact</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    
 
 
                 </tr>
@@ -120,8 +131,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['contact']; ?></td>                                       
-                        <td align="center"><a href="edit.php?id=<?php echo $row["id"]; ?>">Edit</a></td>
-                        <td align="center"><a href="delete.php?id=<?php echo $row["id"]; ?>">Delete</a></td>
+           
 
                 <?php endwhile; ?>
             </table>
@@ -140,7 +150,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM Credential ORDER BY name LIMIT ?,?')
                     <?php if ($page - 2 > 0): ?><li class="page"><a href="admin.php?page=<?php echo $page - 2 ?>"><?php echo $page - 2 ?></a></li><?php endif; ?>
                     <?php if ($page - 1 > 0): ?><li class="page"><a href="admin.php?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a></li><?php endif; ?>
 
-                    <li class="currentpage"><a href="admin page.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+                    <li class="currentpage"><a href="adminpage.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
 
                     <?php if ($page + 1 < ceil($total_pages / $num_results_on_page) + 1): ?><li class="page"><a href="admin.php?page=<?php echo $page + 1 ?>"><?php echo $page + 1 ?></a></li><?php endif; ?>
                     <?php if ($page + 2 < ceil($total_pages / $num_results_on_page) + 1): ?><li class="page"><a href="admin.php?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
