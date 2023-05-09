@@ -2,7 +2,7 @@
 session_start(); 
 include "connect_db.php";
 
-if (isset($_POST['uname']) && isset($_POST['password'])) {
+if (isset($_POST['email']) && isset($_POST['password'])) {
 
 	function validate($data){
        $data = trim($data);
@@ -11,11 +11,11 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 	   return $data;
 	}
 
-	$uname = validate($_POST['uname']);
+	$email = validate($_POST['email']);
 	$pass = validate($_POST['password']);
 
-	if (empty($uname)) {
-		header("Location: login.php?error=Username is required");
+	if (empty($email)) {
+		header("Location: login.php?error=Email is required");
 	    exit();
 	}else if(empty($pass)){
         header("Location: login.php?error=Password is required");
@@ -24,25 +24,24 @@ if (isset($_POST['uname']) && isset($_POST['password'])) {
 		// hashing the password
         $pass = md5($pass);
 
-        
-		$sql = "SELECT * FROM Credential WHERE username='$uname' AND password='$pass'";
+		$sql = "SELECT * FROM Credential WHERE email='$email' AND password='$pass'";
 
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) === 1) {
 			$row = mysqli_fetch_assoc($result);
-            if ($row['username'] === $uname && $row['password'] === $pass) {
-            	$_SESSION['username'] = $row['username'];
+            if ($row['email'] === $email && $row['password'] === $pass) {
+            	$_SESSION['email'] = $row['email'];
             	$_SESSION['name'] = $row['name'];
             	$_SESSION['id'] = $row['id'];
             	header("Location: index.php?page=itempage");
 		        exit();
             }else{
-				header("Location: login.php?error=Incorect username or password");
+				header("Location: login.php?error=Incorect email or password");
 		        exit();
 			}
 		}else{
-			header("Location: login.php?error=Incorect username or password");
+			header("Location: login.php?error=Incorect email or password");
 	        exit();
 		}
 	}

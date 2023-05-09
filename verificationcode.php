@@ -46,6 +46,22 @@ include "functions.php";
             font-size: 18px;
             padding: 10px;
         }
+        .success {
+			background: #98FB98;
+			color: #32CD32;
+			padding: 10px;
+			width: 95%;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
+        .error {
+			background: #F2DEDE;
+			color: #A94442;
+			padding: 10px;
+			width: 95%;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
     </style>
     <title>Verification Code</title>
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -69,9 +85,6 @@ include "functions.php";
 
 
             <!--Enter OTP Code DIV-->
-            <div class="mb-3 mt-5">
-                <input type="email" name="email" placeholder="Enter email" required>
-            </div>
             <div class="mb-3 mt-5">
                 <input type="password" name="key" placeholder="Enter code" required>
             </div>
