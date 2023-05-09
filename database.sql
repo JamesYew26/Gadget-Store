@@ -96,5 +96,6 @@ CREATE TABLE `Credential` (
   `password` varchar(255) NOT NULL,
   `name` varchar(255) NOT NULL,
   `contact` varchar(255) NOT NULL,
-  `email` varchar(255) DEFAULT NULL
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
