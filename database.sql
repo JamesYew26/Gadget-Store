@@ -108,6 +108,17 @@ CREATE TABLE `password_reset_temp` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
 
 
-INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`) VALUES
-('junchee06@gmail.com', '723081', '2023-05-09 19:22:33'),
-('junchee06@gmail.com', '399338', '2023-05-09 19:22:38');
+
+--Changes made on Credential table
+--ID = Primary Key
+--Id auto increment
+ALTER TABLE `Credential`
+  ADD PRIMARY KEY (`id`);
+
+
+
+ALTER TABLE `Credential`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
+
+--insert this into database credential
+INSERT INTO `Credential`(`id`, `username`, `password`, `name`, `contact`, `email`, `address`) VALUES ('1000','admin','admin','Admin','011','admin@gmail.com','adminhome')
