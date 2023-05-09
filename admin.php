@@ -28,7 +28,6 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                 html {
                     font-family: Tahoma, Geneva, sans-serif;
                     padding: 20px;
-                    background-color: #F8F9F9;
                 }
                 table {
                     border-collapse: collapse;
@@ -107,7 +106,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
             <header>
                 <div class="content-wrapper">
                 <img src="imgs/Gadget.png" style="width:60px;height:60px;">
-                <input style="float: right; width: 70px; height: 35px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
+                <button style="float: right; width: 90px; height: 40px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>Upload</button>
                 </div>
             </header>
             <br><br><br>
@@ -115,7 +114,6 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                 <tr>
                     <th>ID</th>
                     <th>Username</th>
-                    <th>Password</th>
                     <th>Name</th>
                     <th>E-mail</th>
                     <th>Contact</th>
@@ -128,7 +126,6 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                     <tr>                                       
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['username']; ?></td>
-                        <td><?php echo $row['password']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['email']; ?></td>
                         <td><?php echo $row['contact']; ?></td>   
