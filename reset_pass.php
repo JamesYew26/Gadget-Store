@@ -91,15 +91,19 @@
                 <p class="success"><?php echo $_GET['success']; ?></p>
             <?php } ?>
 
-                
-            <!--Username DIV-->
+                <!--Email DIV-->
             <div class="mb-3 mt-5">
-                <p><input type="password" name="password" placeholder="New Password" required><br></p>
+                <p><input type="email" name="email" placeholder="Enter your email"><br></p>
+            </div>
+                
+            <!--New password DIV-->
+            <div class="mb-4">
+                <p><input type="password" name="password" placeholder="New Password"><br></p>
             </div>
 
-            <!--Password DIV-->
+            <!--Retype Password DIV-->
             <div class="mb-4">
-                <p><input type="password" name="repassword" placeholder="Retype New Password" required><br></p>
+                <p><input type="password" name="repassword" placeholder="Retype New Password"><br></p>
             </div>
 
             <!--Submit DIV-->

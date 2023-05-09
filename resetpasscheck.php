@@ -3,7 +3,7 @@
 session_start();
 include "connect_db.php";
 
-if (isset($_POST['password']) && isset($_POST['repassword']) && isset($_GET['email'])) {
+if (isset($_POST['password']) && isset($_POST['repassword']) && isset($_POST['email'])) {
 
     function validate($data) {
         $data = trim($data);
@@ -15,7 +15,7 @@ if (isset($_POST['password']) && isset($_POST['repassword']) && isset($_GET['ema
     
     $password = validate($_POST['password']);
     $repassword = validate($_POST['repassword']);
-    $email = validate($_GET['email']);
+    $email = validate($_POST['email']);
 
     
     if (empty($password)) {
@@ -24,20 +24,26 @@ if (isset($_POST['password']) && isset($_POST['repassword']) && isset($_GET['ema
     } else if (empty($repassword)) {
         header("Location: reset_pass.php?error=Retype Password is required");
         exit();
-    } elseif ($password !== $repassword) {
+    } else if (empty($email)) {
+        header("Location: reset_pass.php?error=Email is required");
+        exit();
+    }
+    elseif ($password !== $repassword) {
         header("Location: reset_pass.php?error=Please make your passwords are matched");
         exit();
     } else {
         // hashing the password
         $password = md5($password);
 
-        $sql = "UPDATE `Credential` SET `password` = $password WHERE email = $email";
-        $result = mysqli_query($conn, $sql);
+        $sql = "UPDATE `credential` SET password = '$password' WHERE email = '$email';";
+                $result = mysqli_query($conn, $sql);
 
-        if (mysqli_num_rows($result) === 1) {
-            $row = mysqli_fetch_assoc($result);
-            if ($row['email'] === $email && $row['password'] === $pass) {
-                $_SESSION['email'] = $row['email'];
+		if (mysqli_num_rows($result) === 1) {
+			$row = mysqli_fetch_assoc($result);
+            if ($row['email'] === $email && $row['password'] === $password) {
+            	$_SESSION['email'] = $row['email'];
+                
+                
                 header("Location: index.php?page=login");
                 exit();
             } else {
