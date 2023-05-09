@@ -107,7 +107,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
             <header>
                 <div class="content-wrapper">
                 <img src="imgs/Gadget.png" style="width:60px;height:60px;">
-                <input style="float: right; width: 130px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
+                <input style="float: right; width: 70px; height: 35px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
                 </div>
             </header>
             <br><br><br>
