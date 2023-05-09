@@ -95,4 +95,10 @@ if(!$CheckTable){
 else{
     echo "Table Exists";
 }
+ * 
+ * 
+ * 
+ * 
+ * ALTER TABLE `Credential`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 */

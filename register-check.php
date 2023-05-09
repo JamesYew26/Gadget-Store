@@ -64,11 +64,11 @@ if (
 		// hashing the password
 		$pass = md5($pass);
 
-		$sql = "SELECT * FROM Credential WHERE username ='$uname' ";
+		$sql = "SELECT * FROM Credential WHERE email ='$email' ";
 		$result = mysqli_query($conn, $sql);
 
 		if (mysqli_num_rows($result) > 0) {
-			header("Location: register.php?error=The username is taken try another& $user_data");
+			header("Location: register.php?error=The email is taken try another& $user_data");
 			exit();
 		} else {
 			$sql2 = "INSERT INTO Credential(name, username, password, contact, email, address) "

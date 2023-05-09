@@ -109,18 +109,17 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
          date("Y")
       );
       $expDate = date("Y-m-d H:i:s", $expFormat);
-      $key = rand(999999, 111111);
+      $otpcode = rand(999999, 111111);
       // Insert Temp Table
       mysqli_query(
          $conn,
-         "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
-VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');"
+         "UPDATE `credential` SET otpcode = '$otpcode', expDate = '$expDate' WHERE email='$email';"
     );
-
+      
       $output = '<p>Dear user,</p>';
       $output .= '<p>Please use the following OTP code to reset your password.</p>';
       $output .= '<br><br>';
-      $output .= '<h1>' . $key . '</h1>';
+      $output .= '<h1>' . $otpcode . '</h1>';
       $output .= '<br><br>';
       $output .= '<p>The code will expire after 1 day for security reason.</p>';
       $output .= '<p>If you did not request this forgotten password email, no action 
