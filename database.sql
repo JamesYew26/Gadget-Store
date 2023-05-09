@@ -98,6 +98,7 @@ CREATE TABLE `Credential` (
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL
+<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Password reset table
@@ -111,3 +112,6 @@ CREATE TABLE `password_reset_temp` (
 INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`) VALUES
 ('junchee06@gmail.com', '723081', '2023-05-09 19:22:33'),
 ('junchee06@gmail.com', '399338', '2023-05-09 19:22:38');
+=======
+) ENGINE=InnoDB DEFAULT CHARSET=latin1
+>>>>>>> d3e6f418e351e3852b901016a879bb642dad0e22
