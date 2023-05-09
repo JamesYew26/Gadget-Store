@@ -110,7 +110,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                 <input style="float: right; width: 130px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
                 </div>
             </header>
-           
+            <br><br><br>
             <table class="center">
                 <tr>
                     <th>ID</th>
@@ -119,6 +119,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                     <th>Name</th>
                     <th>E-mail</th>
                     <th>Contact</th>
+                    <th>Address</th>
                     
 
 
@@ -130,7 +131,8 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                         <td><?php echo $row['password']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['contact']; ?></td>                                       
+                        <td><?php echo $row['contact']; ?></td>   
+                        <td><?php echo $row['address']; ?></td> 
            
 
                 <?php endwhile; ?>
@@ -172,4 +174,4 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
     <?php
     $stmt->close();
 }
-?>
+?>  

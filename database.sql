@@ -98,7 +98,6 @@ CREATE TABLE `Credential` (
   `contact` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `address` varchar(255) DEFAULT NULL
-<<<<<<< HEAD
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- Password reset table
