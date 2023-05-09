@@ -77,17 +77,26 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
    $email = $_POST["email"];
    $email = filter_var($email, FILTER_SANITIZE_EMAIL);
    $email = filter_var($email, FILTER_VALIDATE_EMAIL);
+
+
+
    if (!$email) {
-      $error .= "<p>Invalid email address please type a valid email address!</p>";
-   } else {
-      $sel_query = "SELECT * FROM `Credential` WHERE email='" . $email . "'";
-      $results = mysqli_query($conn, $sel_query);
+      $error .="<p>Invalid email address please type a valid email address!</p>";
+      }else{
+      $sel_query = "SELECT * FROM `Credential` WHERE email='".$email."'";
+      $results = mysqli_query($conn,$sel_query);
       $row = mysqli_num_rows($results);
-      if ($row == "") {
-         $error .= "
-         <p><center>No user is registered with this email address!</center></p>";
+      if ($row==""){
+      $error .= "<p>No user is registered with this email address!</p>";
       }
-   }
+     }
+
+
+
+
+
+
+
    if ($error != "") {
       echo "<div class='error'>" . $error . "</div>
       <p><center><a href='javascript:history.go(-1)'><button class='btn btn-primary'>Go Back</button></a></center></p>";
@@ -106,7 +115,7 @@ if (isset($_POST["email"]) && (!empty($_POST["email"]))) {
          $conn,
          "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
 VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');"
-      );
+    );
 
       $output = '<p>Dear user,</p>';
       $output .= '<p>Please use the following OTP code to reset your password.</p>';
@@ -153,6 +162,17 @@ your account and change your security password as someone may have guessed it.</
 <br /><br /><br />";
       }
    }
+
+
+
+
+
+
+
+
+
+   
+
 } else {
    ?>
    <!--HEADER-->

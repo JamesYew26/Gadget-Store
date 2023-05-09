@@ -1,40 +1,66 @@
-<!DOCTYPE html>
-<html>
+<?php
+if ($error != "") {
+    echo "<div class='error'>" . $error . "</div>
+   <br /><a href='javascript:history.go(-1)'>Go Back</a>";
+} else {
+    $expFormat = mktime(
+        date("H"),
+        date("i"),
+        date("s"),
+        date("m"), date("d") + 1,
+        date("Y")
+    );
+    $expDate = date("Y-m-d H:i:s", $expFormat);
+    $key = md5(2418 * 2 + $email);
+    $addKey = substr(md5(uniqid(rand(), 1)), 3, 10);
+    $key = $key . $addKey;
+    // Insert Temp Table
+    mysqli_query(
+        $con,
+        "INSERT INTO `password_reset_temp` (`email`, `key`, `expDate`)
+VALUES ('" . $email . "', '" . $key . "', '" . $expDate . "');"
+    );
 
-<head>
-    <meta charset="utf-8">
-    <title>$title</title>
-    <link href="style.css" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <style>
-       
-    </style>
-</head>
+    $output = '<p>Dear user,</p>';
+    $output .= '<p>Please click on the following link to reset your password.</p>';
+    $output .= '<p>-------------------------------------------------------------</p>';
+    $output .= '<p><a href="https://www.allphptricks.com/forgot-password/reset-password.php?
+key=' . $key . '&email=' . $email . '&action=reset" target="_blank">
+https://www.allphptricks.com/forgot-password/reset-password.php
+?key=' . $key . '&email=' . $email . '&action=reset</a></p>';
+    $output .= '<p>-------------------------------------------------------------</p>';
+    $output .= '<p>Please be sure to copy the entire link into your browser.
+The link will expire after 1 day for security reason.</p>';
+    $output .= '<p>If you did not request this forgotten password email, no action 
+is needed, your password will not be reset. However, you may want to log into 
+your account and change your security password as someone may have guessed it.</p>';
+    $output .= '<p>Thanks,</p>';
+    $output .= '<p>AllPHPTricks Team</p>';
+    $body = $output;
+    $subject = "Password Recovery - AllPHPTricks.com";
 
-<body>
-
-    <header>
-        <div class="content-wrapper">
-            <a href="itempage.php">
-                <img src="imgs/Gadget.png" style="width:80px;height:80px;" href="itempage.php">
-            </a>
-
-            <a href="itempage.php">
-                <h1>Gadget Store</h1>
-            </a>
-
-            <div class="link-icons">
-                <a href="index.php?page=cart">
-                    <i class="fas fa-shopping-cart"></i>
-                    <span>$num_items_in_cart</span>
-                </a>
-            </div>
-
-            <div class="loginbtn">
-                <a href="login.php">
-                <button type="submit" class="btn btn-secondary">Login</button>
-                </a>
-            </div>
-    </header>
+    $email_to = $email;
+    $fromserver = "noreply@yourwebsite.com";
+    require("PHPMailer/PHPMailerAutoload.php");
+    $mail = new PHPMailer();
+    $mail->IsSMTP();
+    $mail->Host = "mail.yourwebsite.com"; // Enter your host here
+    $mail->SMTPAuth = true;
+    $mail->Username = "noreply@yourwebsite.com"; // Enter your email here
+    $mail->Password = "password"; //Enter your password here
+    $mail->Port = 25;
+    $mail->IsHTML(true);
+    $mail->From = "noreply@yourwebsite.com";
+    $mail->FromName = "AllPHPTricks";
+    $mail->Sender = $fromserver; // indicates ReturnPath header
+    $mail->Subject = $subject;
+    $mail->Body = $body;
+    $mail->AddAddress($email_to);
+    if (!$mail->Send()) {
+        echo "Mailer Error: " . $mail->ErrorInfo;
+    } else {
+        echo "<div class='error'>
+<p>An email has been sent to you with instructions on how to reset your password.</p>
+</div><br /><br /><br />";
+    }
+}
