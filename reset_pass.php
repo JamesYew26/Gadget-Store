@@ -51,6 +51,14 @@
 			border-radius: 5px;
 			margin: 20px auto;
 		}
+		.success {
+			background: #98FB98;
+			color: #32CD32;
+			padding: 10px;
+			width: 95%;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
 	</style>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">

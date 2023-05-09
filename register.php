@@ -146,6 +146,13 @@
                     name="email" 
                     placeholder="Email">
                 </div>
+
+				<!-- Email -->
+                <div class="mb-3 mt-3">
+                    <input type="text" 
+                    name="address" 
+                    placeholder="Address">
+                </div>
                 
           <button type="submit" class="btn btn-primary">Sign Up</button>
           <div class="mt-3"><a href="index.php?page=login" class="ca">Already have an account?</a></div>

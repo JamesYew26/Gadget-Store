@@ -57,6 +57,14 @@ include 'index.html';
 			border-radius: 5px;
 			margin: 20px auto;
 		}
+		.success {
+			background: #98FB98;
+			color: #32CD32;
+			padding: 10px;
+			width: 95%;
+			border-radius: 5px;
+			margin: 20px auto;
+		}
 	</style>
 
 	
@@ -93,9 +101,9 @@ include 'index.html';
 				</p>
 			<?php } ?>
 
-			<!--Username DIV-->
+			<!--Email DIV-->
 			<div class="mb-3 mt-3">
-				<p><input type="text" name="uname" placeholder="Username"><br></p>
+				<p><input type="email" name="email" placeholder="Email"><br></p>
 			</div>
 
 			<!--Password DIV-->
