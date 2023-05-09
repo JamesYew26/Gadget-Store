@@ -149,7 +149,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                     <?php if ($page - 2 > 0): ?><li class="page"><a href="admin.php?page=<?php echo $page - 2 ?>"><?php echo $page - 2 ?></a></li><?php endif; ?>
                     <?php if ($page - 1 > 0): ?><li class="page"><a href="admin.php?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a></li><?php endif; ?>
 
-                    <li class="currentpage"><a href="adminpage.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+                    <li class="currentpage"><a href="admin.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
 
                     <?php if ($page + 1 < ceil($total_pages / $num_results_on_page) + 1): ?><li class="page"><a href="admin.php?page=<?php echo $page + 1 ?>"><?php echo $page + 1 ?></a></li><?php endif; ?>
                     <?php if ($page + 2 < ceil($total_pages / $num_results_on_page) + 1): ?><li class="page"><a href="admin.php?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
