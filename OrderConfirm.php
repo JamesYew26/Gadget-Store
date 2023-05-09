@@ -210,4 +210,3 @@ if ($products_in_cart) {
         </main>
 </body>
 </html>
-<?php /*echo $invoice_ID ;*/?>
