@@ -52,7 +52,7 @@ if (!function_exists('template_header')) {
                     </div>
                     <div class="loginbtn">
                     <a href = "index.php?page=login">
-                    <button type="button" class="btn btn-secondary" href"index.php?page=login">Login</button>
+                    <button type="button" class="btn btn-red" href"index.php?page=logout">Log Out</button>
                     </a>
                 </div>
                 </div>
