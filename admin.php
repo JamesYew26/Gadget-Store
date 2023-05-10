@@ -1,4 +1,6 @@
 <?php
+
+include 'index.html';
 // Below is optional, remove if you have already connected to your database.
 $mysqli = mysqli_connect('localhost', 'username', 'password', 'gadgetstore');
 
