@@ -9,10 +9,10 @@ $total_pages = $mysqli->query('SELECT * FROM credential')->num_rows;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
 // Number of results to show on each page.
-$num_results_on_page = 10;
+$num_results_on_page = 5;
 
 
-if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')) {
+if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);
@@ -171,7 +171,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
         </body>
     </html>
     <?php
-    include 'index.html';
+
     $stmt->close();
 }
 ?>  
