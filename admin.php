@@ -11,6 +11,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 // Number of results to show on each page.
 $num_results_on_page = 10;
 
+
 if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
@@ -166,9 +167,11 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
 
                 </ul>
             <?php endif; ?>
+            
         </body>
     </html>
     <?php
+    include 'index.html';
     $stmt->close();
 }
 ?>  
