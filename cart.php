@@ -143,6 +143,6 @@ if ($products_in_cart) {
                 
     
 </div>
-        
+ 
 
 <?=template_footer()?>
