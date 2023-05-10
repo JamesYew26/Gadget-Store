@@ -114,6 +114,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
             </header>
             <br><br><br>
             <table class="center">
+                <center>  <h1>User Account</h1> </center>
                 <tr>
                     <th>ID</th>
                     <th>Username</th>
