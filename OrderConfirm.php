@@ -210,3 +210,6 @@ if ($products_in_cart) {
         </main>
 </body>
 </html>
+<?php
+   session_destroy();
+?>

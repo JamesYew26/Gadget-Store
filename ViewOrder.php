@@ -6,7 +6,7 @@ $db_name = "GadgetStore";
 
 $conn = mysqli_connect($servername, $username, $password, $db_name);
 
-$sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered,invoiceID   FROM `userorder` WHERE `userID`=1001"; 
+$sql ="SELECT userID , productID, name,img, quantity, rrp, price, date_ordered,invoiceID   FROM `userorder` WHERE `userID`=1011"; 
 $result = $conn->query($sql);
 ?>
 
@@ -50,7 +50,7 @@ while ($row = $result->fetch_assoc()){
   else {
       echo "<td></td><td></td><td></td><td></td><td>No Order yet.</td><td></td><td></td><td></td><td></td>";
   }
-      $conn->close();        
+    
    ?>
                  
 </table>
@@ -61,8 +61,6 @@ while ($row = $result->fetch_assoc()){
               </svg>
               <i class="bi bi-printer-fill">Print Receipt</i></button>
               
-           
-   
                 <button class="btn btn-primary" onclick="window.location.href='index.php?page=itempage'">Return to homepage</button>
        
 
