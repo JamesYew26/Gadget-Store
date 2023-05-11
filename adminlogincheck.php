@@ -15,10 +15,10 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
 	$pass = validate($_POST['password']);
 
 	if (empty($email)) {
-		header("Location: login.php?error=Email is required");
+		header("Location: adminlogin.php?error=Email is required");
 	    exit();
 	}else if(empty($pass)){
-        header("Location: login.php?error=Password is required");
+        header("Location: adminlogin.php?error=Password is required");
 	    exit();
 	}else{
 		// hashing the password
@@ -37,16 +37,16 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
             	header("Location: index.php?page=admin");
 		        exit();
             }else{
-				header("Location: login.php?error=Incorect email or password");
+				header("Location: adminlogin.php?error=Incorect email or password");
 		        exit();
 			}
 		}else{
-			header("Location: login.php?error=Incorect email or password");
+			header("Location: adminlogin.php?error=Incorect email or password");
 	        exit();
 		}
 	}
 	
 }else{
-	header("Location: index.php?page=login");
+	header("Location: index.php?page=adminlogin");
 	exit();
 }
