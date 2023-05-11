@@ -33,11 +33,11 @@ if (isset($_POST['password']) && isset($_POST['repassword']) && isset($_POST['em
         $password = md5($password);
 
         mysqli_query($conn, "UPDATE `credential` SET password = '$password' WHERE email='$email';");
-        header("Location: index.php?page=login");
+        header("Location: login.php?success=Password successfully changed");
         exit();
     }
 } else {
-    header("Location: index.php?page=login");
+     header("Location: login.php?success=Password successfully changed");
     exit();
 }
 
