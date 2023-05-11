@@ -36,7 +36,7 @@ if (!function_exists('template_header')) {
             <header>
                 <div class="content-wrapper">
                 <a href="index.php?page=itempage">
-                <img src="imgs/Gadget.png" style="width:80px;height:80px;" href="itempage.php">
+                <img src="imgs/Gadget.png" style="width:80px;height:80px;" href="index.php?page=itempage">
                 </a>
     
                 <a href="index.php?page=itempage">
@@ -52,7 +52,7 @@ if (!function_exists('template_header')) {
                     </div>
                     <div class="loginbtn">
                     <a href = "index.php?page=login">
-                    <button type="button" class="btn btn-red" href"index.php?page=logout">Log Out</button>
+                    <img src="imgs/logout.png" style="width:25px; height:25px; opacity:70%;" href="index.php?page=logout">
                     </a>
                 </div>
                 </div>
@@ -82,5 +82,57 @@ if (!function_exists('template_footer')) {
     }
 }
 
+
+
+
+
+// Template login header
+if (!function_exists('loginheader')) {
+    function loginheader($title)
+    {
+        // Get the number of items in the shopping cart, which will be displayed in the header.
+        $num_items_in_cart = isset($_SESSION['cart']) ? count($_SESSION['cart']) : 0;
+
+        echo <<<EOT
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <meta charset="utf-8">
+            <title>$title</title>
+            <link href="style.css" rel="stylesheet" type="text/css">
+            <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+        </head>
+        <body>
+            <header>
+                <div class="content-wrapper">
+                <a href="index.php?page=itempage">
+                <img src="imgs/Gadget.png" style="width:80px;height:80px;" href="index.php?page=itempage">
+                </a>
+    
+                <a href="index.php?page=itempage">
+                    <h1>Gadget Store</h1>
+                
+
+     
+                    <div class="link-icons">
+                        <a href="index.php?page=cart">
+                            <i class="fas fa-shopping-cart"></i>
+            <span>$num_items_in_cart</span>
+                        </a>
+                    </div>
+                    <div class="loginbtn">
+                    <a href = "index.php?page=login">
+                    <img src="imgs/profile.png" style="width:25px; height:25px; opacity:70%;" href="index.php?page=login">
+                    </a>
+                </div>
+                </div>
+            </header>
+            <main>
+        
+    EOT;
+
+
+    }
+}
 
 ?>

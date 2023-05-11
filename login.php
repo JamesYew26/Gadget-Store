@@ -74,7 +74,6 @@ include 'index.html';
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
 	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
-	`
 </head>
 
 <body>
@@ -86,7 +85,7 @@ include 'index.html';
 
 
 	<!--HEADER-->
-	<?= template_header('Home') ?>
+	<?= loginheader('Home') ?>
 
 
 
