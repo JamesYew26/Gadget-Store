@@ -82,7 +82,7 @@
 
 	<!--LOGIN CONTAINER-->
      <center>
-     <form action="register-check.php" method="post">
+     <form action="adminregister-check.php" method="post">
      
      	<h2>ADMIN SIGN UP</h2>
      	<?php if (isset($_GET['error'])) { ?>
@@ -155,7 +155,7 @@
                 </div>
                 
           <button type="submit" class="btn btn-primary">Sign Up</button>
-          <div class="mt-3"><a href="index.php?page=login" class="ca">Already have an account?</a></div>
+          <div class="mt-3"><a href="index.php?page=adminlogin" class="ca">Already have an account?</a></div>
      </form>
      </center>
      

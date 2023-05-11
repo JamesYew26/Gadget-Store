@@ -131,7 +131,7 @@ if ($products_in_cart) {
 
                 
                 $InsertOrder ="INSERT INTO `userorder`(`userID`,`productID`,`name`,`desc`,`price`,`rrp`,`quantity`,`img`,`date_ordered`,`invoiceID` ) 
-                       VALUES ('1012' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered','$invoice_ID')";
+                       VALUES ('1014' ,'$productID' ,'$productName' ,' ' ,'$Totalprice' ,'$ProductPrice' ,'$quantity' ,'$imgs' ,'$date_ordered','$invoice_ID')";
                 
                 
                //check query
