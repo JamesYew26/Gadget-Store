@@ -92,7 +92,7 @@ include 'index.html';
 
 	<!--LOGIN CONTAINER-->
 	<center>
-		<form action="logincheck.php" method="post">
+		<form action="adminlogincheck.php" method="post">
 
 			<h2>ADMIN LOGIN</h2>
 			<?php if (isset($_GET['error'])) { ?>
@@ -113,7 +113,7 @@ include 'index.html';
 
 			<!--Submit DIV-->
 			<button type="submit" class="btn btn-primary">Login</button>
-			<div class="mt-3"><a href="index.php?page=register" class="ca">Create an account</a>
+			<div class="mt-3"><a href="index.php?page=adminregister" class="ca">Create an account</a>
 
 		</form>
 	</center>
