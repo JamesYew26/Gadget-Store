@@ -113,8 +113,8 @@ include 'index.html';
 
 			<!--Submit DIV-->
 			<button type="submit" class="btn btn-primary">Login</button>
-			<div class="mt-3"><a href="index.php?page=adminregister" class="ca">Create an account</a>
-
+			<div class="mt-3"><a href="index.php?page=adminregister" class="ca">Create Admin account</a>
+ <div class="mt-3"><a href="index.php?page=login" class="ca">Back to User Login</a>
 		</form>
 	</center>
 

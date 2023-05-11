@@ -118,7 +118,7 @@
             <button type="submit" class="btn btn-primary">Login</button>
             <div class="mt-3"><a href="index.php?page=register" class="ca">Create an account</a>
                 <div class="mt-3"><a href="index.php?page=forgotpass" class="ca">Forgot Password</a>
-
+ <div class="mt-3"><a href="index.php?page=adminlogin" class="ca">Admin Login</a>
                     </form>
                     </center>
 
