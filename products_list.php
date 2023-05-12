@@ -162,7 +162,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY id LIMIT ?,?')) {
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['desc']; ?></td>
-                        <td><?php echo $row['price']; ?></td>
+                        <td><?php echo "RM ".$row['price']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
                         <td><img width=75 alt="image" src="<?php echo "imgs/".$row['img']; ?>"></td>
                         <td><?php echo $row['date_added']; ?></td>
