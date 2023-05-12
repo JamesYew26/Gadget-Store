@@ -1,6 +1,4 @@
 <?php
-
-include 'index.html';
 // Below is optional, remove if you have already connected to your database.
 $mysqli = mysqli_connect('localhost', 'username', 'password', 'gadgetstore');
 
@@ -13,8 +11,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 // Number of results to show on each page.
 $num_results_on_page = 5;
 
-
-if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) {
+if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);
@@ -31,6 +28,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
                 html {
                     font-family: Tahoma, Geneva, sans-serif;
                     padding: 20px;
+                    background-color: #F8F9F9;
                 }
                 table {
                     border-collapse: collapse;
@@ -40,6 +38,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
                 header {
                     border-bottom: 1px solid #EEEEEE;
                 }
+
                 td, th {
                     padding: 15px;
                 }
@@ -71,11 +70,17 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
                     display: inline-flex;
                     justify-content: space-between;
                     box-sizing: border-box;
-
+                    justify-content: center;
+                    align-items: center;
+                }
+                .pagination ul {
+                    text-align: center;
                 }
                 .pagination li {
                     box-sizing: border-box;
                     padding-right: 10px;
+                    margin: 0 auto;
+                    
                 }
                 .pagination li a {
                     box-sizing: border-box;
@@ -86,6 +91,9 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
                     font-weight: bold;
                     color: #616872;
                     border-radius: 4px;
+                    text-align: center;
+                    margin: 0 auto;
+                    
                 }
                 .pagination li a:hover {
                     background-color: #d4dada;
@@ -93,15 +101,29 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
                 .pagination .next a, .pagination .prev a {
                     text-transform: uppercase;
                     font-size: 12px;
-                    margin: 0;
+                    margin: 0 auto;
+                   
 
                 }
                 .pagination .currentpage a {
                     background-color: #518acb;
                     color: #fff;
+                    margin: 0 auto;
+                    
+                    
                 }
                 .pagination .currentpage a:hover {
                     background-color: #518acb;
+                  
+                }
+                .btn
+                {
+                    width: 70px; 
+                    height: 35px;
+                    border-radius: 5px; 
+                    background-color: #ff0000;
+                    color: #ffffff; font-family:
+                        Tahoma, Geneva, sans-serif;
                 }
             </style>
         </head>
@@ -109,19 +131,20 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
             <header>
                 <div class="content-wrapper">
                 <img src="imgs/Gadget.png" style="width:60px;height:60px;">
-                <button style="float: right; width: 90px; height: 40px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>Upload</button>
+                <input style="float: right; width: 70px; height: 35px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
+                <input style="float: right; width: 70px; height: 35px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='products_list.php'" value='Products'>                
                 </div>
             </header>
-            <br><br><br>
+            <center><h3>User Details</h3></center>
             <table class="center">
-                <center>  <h1>User Account</h1> </center>
                 <tr>
                     <th>ID</th>
                     <th>Username</th>
+                    <th>Password</th>
                     <th>Name</th>
                     <th>E-mail</th>
                     <th>Contact</th>
-                    <th>Address</th>
+                    <th>Delete</th>
                     
 
 
@@ -130,14 +153,23 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
                     <tr>                                       
                         <td><?php echo $row['id']; ?></td>
                         <td><?php echo $row['username']; ?></td>
+                        <td><?php echo $row['password']; ?></td>
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['email']; ?></td>
-                        <td><?php echo $row['contact']; ?></td>   
-                        <td><?php echo $row['address']; ?></td> 
+                        <td><?php echo $row['contact']; ?></td> 
+                        
+                            
+                        <td>
+                        <form>
+                            <input type="hidden" class="form-control" name="delete_id" value="<?php echo $row['id'];?>">
+                            <button type="submit" name="delete_btn" class="btn btn-danger">Danger</button>
+                        </form>
+                        </td>
            
 
                 <?php endwhile; ?>
             </table>
+            <center>
             <?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
                 <ul class="pagination">   
 
@@ -169,12 +201,11 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) 
 
 
                 </ul>
+                </center>
             <?php endif; ?>
-            
         </body>
     </html>
     <?php
-
     $stmt->close();
 }
-?>  
+?>
