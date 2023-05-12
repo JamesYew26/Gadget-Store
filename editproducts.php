@@ -1,7 +1,8 @@
 <?php
 session_start();
+include 'connect_db.php';  
 ?>
- 
+
 <div class="section">
     <div class="container mt-5">
         <div class="row justify-content-center">

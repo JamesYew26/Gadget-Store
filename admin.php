@@ -11,13 +11,22 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 // Number of results to show on each page.
 $num_results_on_page = 5;
 
-if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')) {
+if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY id LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);
     $stmt->execute();
     // Get the results...
     $result = $stmt->get_result();
+    
+    
+    // Remove product from cart, check for the URL param "remove", this is the product id, make sure it's a number and check if it's in the cart
+if (isset($_GET['remove']) && is_numeric($_GET['remove']) && isset($_SESSION['admin']) && isset($_SESSION['admin'][$_GET['remove']])) {
+    // Remove the product from the shopping cart
+    unset($_SESSION['admin'][$_GET['remove']]);
+    
+    $sql="DELETE FROM `credential` WHERE id=1000";
+} 
     ?>
     <!DOCTYPE html>
     <html>
@@ -159,12 +168,10 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                         <td><?php echo $row['contact']; ?></td> 
                         
                             
-                        <td>
+
                         <form>
-                            <input type="hidden" class="form-control" name="delete_id" value="<?php echo $row['id'];?>">
-                            <button type="submit" name="delete_btn" class="btn btn-success">Delete</button>
+                          <td  class="remove"><a href="index.php?page=admin&remove=<?=$row['id']?>" class="remove"color="red"><font color="FF7777">Remove</font></a></td>
                         </form>
-                        </td>
            
 
                 <?php endwhile; ?>
@@ -185,7 +192,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                     <?php if ($page - 2 > 0): ?><li class="page"><a href="admin.php?page=<?php echo $page - 2 ?>"><?php echo $page - 2 ?></a></li><?php endif; ?>
                     <?php if ($page - 1 > 0): ?><li class="page"><a href="admin.php?page=<?php echo $page - 1 ?>"><?php echo $page - 1 ?></a></li><?php endif; ?>
 
-                    <li class="currentpage"><a href="admin.php?page=<?php echo $page ?>"><?php echo $page ?></a></li>
+                    <li class="currentpage"><a href="admin.php?p<?php echo $page ?>"><?php echo $page ?></a></li>
 
                     <?php if ($page + 1 < ceil($total_pages / $num_results_on_page) + 1): ?><li class="page"><a href="admin.php?page=<?php echo $page + 1 ?>"><?php echo $page + 1 ?></a></li><?php endif; ?>
                     <?php if ($page + 2 < ceil($total_pages / $num_results_on_page) + 1): ?><li class="page"><a href="admin.php?page=<?php echo $page + 2 ?>"><?php echo $page + 2 ?></a></li><?php endif; ?>
