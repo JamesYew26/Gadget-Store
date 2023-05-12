@@ -100,13 +100,6 @@ CREATE TABLE `Credential` (
   `address` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
--- Password reset table
-CREATE TABLE `password_reset_temp` (
-  `email` varchar(250) NOT NULL,
-  `key` varchar(250) NOT NULL,
-  `expDate` datetime NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
-
 
 
 --Changes made on Credential table
