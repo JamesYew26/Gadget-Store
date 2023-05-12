@@ -61,6 +61,20 @@ if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY name LIMIT ?,?')) 
                 tr:nth-child(odd) {
                     background-color: #ffffff;
                 }
+                .btn  {
+                    text-decoration: none;
+                    padding: 2px 5px;
+                    background: #2E8B57;
+                    color: white;
+                    border-radius: 3px;
+                }
+                .del_btn {
+                    text-decoration: none;
+                    padding: 2px 5px;
+                    color: white;
+                    border-radius: 3px;
+                    background: #800000;
+                }
                 .center {
                     margin-left: auto;
                     margin-right: auto;
@@ -124,6 +138,8 @@ if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY name LIMIT ?,?')) 
                 <div class="content-wrapper">
                 <img src="imgs/Gadget.png" style="width:60px;height:60px;">
                 <input style="float: right; width: 70px; height: 35px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='upload.html'" value='Upload'>
+                <input style="float: right; width: 70px; height: 35px;border-radius: 5px; background-color: #4e5c70; color: #ffffff; font-family: Tahoma, Geneva, sans-serif;" type=button onClick="location.href='admin.php'" value='Homepage'>
+
                 </div>
             </header>
             <center><h3>Products List</h3></center>
@@ -150,9 +166,16 @@ if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY name LIMIT ?,?')) 
                         <td><?php echo $row['price']; ?></td>
                         <td><?php echo $row['rrp']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
-                        <td><?php echo $row['img']; ?></td>
+                        <td><img src="<?php echo "uploads/".$row['img']; ?>width=75 alt="image""></td>
                         <td><?php echo $row['date_added']; ?></td>
-                        <td><a href="edit.php?edit=<?php echo $row['id']; ?>" class="edit_btn" >Edit</a></td>
+                        <td><a href="editproducts.php?id=<?php echo $row['id']; ?>" class="btn btn-success" >Edit</a></td>
+                    <td>     
+                    <form>
+                            <input type="hidden" class="form-control" name="delete_id" value="<?php echo $row['id'];?>">
+                            <button type="submit" name="delete_btn" class="btn btn-danger">Danger</button>
+                        </form>
+                    </td>    
+
 
            
 
