@@ -162,7 +162,7 @@ if ($stmt = $mysqli->prepare('SELECT * FROM credential ORDER BY name LIMIT ?,?')
                         <td>
                         <form>
                             <input type="hidden" class="form-control" name="delete_id" value="<?php echo $row['id'];?>">
-                            <button type="submit" name="delete_btn" class="btn btn-danger">Danger</button>
+                            <button type="submit" name="delete_btn" class="btn btn-success">Delete</button>
                         </form>
                         </td>
            

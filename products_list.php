@@ -12,7 +12,7 @@ $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 // Number of results to show on each page.
 $num_results_on_page = 5;
 
-if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY name LIMIT ?,?')) {
+if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY id LIMIT ?,?')) {
     // Calculate the page to get the results we need from our table.
     $calc_page = ($page - 1) * $num_results_on_page;
     $stmt->bind_param('ii', $calc_page, $num_results_on_page);
@@ -149,7 +149,6 @@ if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY name LIMIT ?,?')) 
                     <th>Name</th>
                     <th>Desc</th>
                     <th>Price</th>
-                    <th>Rrp</th>
                     <th>Quantity</th>
                     <th>Image</th>
                     <th>Date_added</th>
@@ -164,15 +163,14 @@ if ($stmt = $mysqli->prepare('SELECT * FROM products ORDER BY name LIMIT ?,?')) 
                         <td><?php echo $row['name']; ?></td>
                         <td><?php echo $row['desc']; ?></td>
                         <td><?php echo $row['price']; ?></td>
-                        <td><?php echo $row['rrp']; ?></td>
                         <td><?php echo $row['quantity']; ?></td>
-                        <td><img src="<?php echo "uploads/".$row['img']; ?>width=75 alt="image""></td>
+                        <td><img width=75 alt="image" src="<?php echo "imgs/".$row['img']; ?>"></td>
                         <td><?php echo $row['date_added']; ?></td>
                         <td><a href="editproducts.php?id=<?php echo $row['id']; ?>" class="btn btn-success" >Edit</a></td>
                     <td>     
                     <form>
                             <input type="hidden" class="form-control" name="delete_id" value="<?php echo $row['id'];?>">
-                            <button type="submit" name="delete_btn" class="btn btn-danger">Danger</button>
+                            <button type="submit" name="delete_btn" class="btn btn-danger">Delete</button>
                         </form>
                     </td>    
 
