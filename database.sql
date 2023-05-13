@@ -108,10 +108,18 @@ CREATE TABLE `Credential` (
 ALTER TABLE `Credential`
   ADD PRIMARY KEY (`id`);
 
-
-
 ALTER TABLE `Credential`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1002;
 
 --insert this into database credential
 INSERT INTO `Credential`(`id`, `username`, `password`, `name`, `contact`, `email`, `address`) VALUES ('1000','admin','admin','Admin','011','admin@gmail.com','adminhome')
+
+CREATE TABLE `admin` (
+  `id` int(11) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `contact` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `address` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
